@@ -18,7 +18,6 @@ class GenreCell: UICollectionViewCell {
     let viewWrapper = UIView()
     let imageView = UIImageView()
     
-    let viewNameGenreInner = UIStackView()
     let textView = UITextView()
     let textViewChellenge = UITextView()
     
@@ -30,22 +29,24 @@ class GenreCell: UICollectionViewCell {
     }
     
     override func didMoveToSuperview() {
+        
+        // Setup View
         self.imageView.image = #imageLiteral(resourceName: "genre-1")
         self.textView.text = "Test name genre"
         self.textView.font = .boldSystemFont(ofSize: 17)
         self.textViewChellenge.text = "2/10"
-        
-        self.viewNameGenreInner.addArrangedSubview(textView)
-        self.viewNameGenreInner.addArrangedSubview(textViewChellenge)
-        
-        self.viewNameGenreInner.axis = .vertical
-
-        
         self.viewWrapper.addSubview(imageView)
-        self.viewWrapper.addSubview(viewNameGenreInner)
         self.imageView.fillSuperview()
-        self.viewNameGenreInner.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: viewWrapper.bottomAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 60))
-//        self.viewWrapper.bringSubviewToFront(viewNameGenreInner)
+        
+        self.viewWrapper.addSubview(textView)
+        self.viewWrapper.addSubview(textViewChellenge)
+        self.textViewChellenge.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: viewWrapper.bottomAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 40))
+        self.textView.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: textViewChellenge.topAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 28))
+        
+//        let stackView = UIStackView(arrangedSubviews: [textView, textViewChellenge])
+//        self.viewWrapper.addSubview(stackView)
+//        stackView.axis = .vertical
+//        stackView.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: viewWrapper.bottomAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 200))
         
         self.addSubview(viewWrapper)
         self.viewWrapper.fillSuperview()

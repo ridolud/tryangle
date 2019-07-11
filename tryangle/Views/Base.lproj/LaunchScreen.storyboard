@@ -17,20 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="IVL-2H-LEe">
-                                <rect key="frame" x="157" y="398" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="9CR-AJ-3nf"/>
-                                    <constraint firstAttribute="height" constant="100" id="yug-QN-cQ0"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="IVL-2H-LEe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SFl-1C-2ey"/>
-                            <constraint firstItem="IVL-2H-LEe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="o3g-7a-ymO"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.14902088046073914" green="0.14901727437973022" blue="0.1490197479724884" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -39,7 +26,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="logo" width="1024" height="1024"/>
-    </resources>
 </document>

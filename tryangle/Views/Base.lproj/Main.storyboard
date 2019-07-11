@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZwC-Xe-Tji">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,11 +11,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CameraController" customModule="tryangle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y54-hB-Aeq" customClass="liveCameraView" customModule="tryangle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="556"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="556"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="556" id="yWa-cS-4la"/>
@@ -60,11 +56,11 @@
             <objects>
                 <viewController title="Genre" id="hVX-p8-HqY" customClass="GenreController" customModule="tryangle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OyZ-21-sEn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-LE-T26">
-                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="116" width="600" height="484"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qzt-pF-cqn">
                                     <size key="itemSize" width="50" height="50"/>
@@ -95,7 +91,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Try Angle" id="0jE-NF-tA3"/>
                     <connections>
-                        <outlet property="gendreCollectionView" destination="Pb0-LE-T26" id="6aD-KC-HhM"/>
+                        <outlet property="genreCollectionView" destination="Pb0-LE-T26" id="6aD-KC-HhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kI5-Ug-3cS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,11 +103,11 @@
             <objects>
                 <viewController id="hFt-UX-Qn2" customClass="ARCameraController" customModule="tryangle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wEM-mK-l54">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AY-RW-dd5">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld9-Yj-EJy">
                                 <rect key="frame" x="184" y="832" width="46" height="30"/>
@@ -169,7 +165,7 @@
             <objects>
                 <viewController title="Genre Title" id="doQ-T2-whU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rr9-r8-GxI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="f3y-qX-hZQ">
@@ -203,16 +199,16 @@
             </objects>
             <point key="canvasLocation" x="2073.913043478261" y="916.74107142857133"/>
         </scene>
-        <!--View Controller-->
+        <!--Comparison VIew-->
         <scene sceneID="2M7-zt-Cai">
             <objects>
-                <viewController id="IIM-ie-9iJ" sceneMemberID="viewController">
+                <viewController title="Comparison VIew" id="IIM-ie-9iJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wW6-Ru-LqW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctn-OV-CU4">
-                                <rect key="frame" x="111.5" y="104" width="191.5" height="63.5"/>
+                                <rect key="frame" x="204.5" y="80" width="191.5" height="63.5"/>
                                 <string key="text">Which one is the 
 high angle?</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -220,10 +216,10 @@ high angle?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="si1-20-uV9">
-                                <rect key="frame" x="35" y="206.5" width="344" height="600"/>
+                                <rect key="frame" x="35" y="182.5" width="530" height="924.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-N5-sNf">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="924.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="72" translatesAutoresizingMaskIntoConstraints="NO" id="oLv-hM-ygJ">
                                                 <rect key="frame" x="7" y="50" width="145" height="525"/>
@@ -247,7 +243,7 @@ high angle?</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YED-Qt-2WB">
-                                        <rect key="frame" x="184" y="0.0" width="160" height="600"/>
+                                        <rect key="frame" x="184" y="0.0" width="346" height="924.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -272,10 +268,10 @@ high angle?</string>
             </objects>
             <point key="canvasLocation" x="3250.7246376811595" y="916.74107142857133"/>
         </scene>
-        <!--View Controller-->
+        <!--Review View-->
         <scene sceneID="VKq-KF-vKR">
             <objects>
-                <viewController id="2O7-h8-rNM" sceneMemberID="viewController">
+                <viewController title="Review View" id="2O7-h8-rNM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlg-gb-an5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1095"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

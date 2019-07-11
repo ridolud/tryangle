@@ -10,14 +10,14 @@ import UIKit
 
 class GenreController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var gendreCollectionView: UICollectionView!
+    @IBOutlet weak var genreCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = gendreCollectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as! GenreCell
+        let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as! GenreCell
         
         return cell
     }
@@ -30,14 +30,18 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
         layout.itemSize = CGSize(width: (view.bounds.width - layout.sectionInset.left - layout.sectionInset.right), height: 275)
         layout.minimumLineSpacing = 20
         
-        gendreCollectionView.collectionViewLayout = layout
+        genreCollectionView.collectionViewLayout = layout
+    }
+    
+    fileprivate func extractedFunc() {
+        genreCollectionView.delegate = self
+        genreCollectionView.dataSource = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gendreCollectionView.delegate = self
-        gendreCollectionView.dataSource = self
+        extractedFunc()
         
         setUpCollectionView()
     }

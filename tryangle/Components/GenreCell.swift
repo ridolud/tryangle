@@ -10,11 +10,6 @@ import UIKit
 
 class GenreCell: UICollectionViewCell {
     
-//    let genreImg: UIImage = UIImage()
-//    let genreName: String = "Genre Name"
-//    let genreChallenges: Int = 0
-//    var genreCurrentCellenges: Int = 0
-    
     let viewWrapper = UIView()
     let imageView = UIImageView()
     
@@ -28,8 +23,7 @@ class GenreCell: UICollectionViewCell {
         
     }
     
-    override func didMoveToSuperview() {
-        
+    fileprivate func setUpView() {
         // Setup View
         self.imageView.image = #imageLiteral(resourceName: "genre-1")
         self.textView.text = "Test name genre"
@@ -43,14 +37,13 @@ class GenreCell: UICollectionViewCell {
         self.textViewChellenge.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: viewWrapper.bottomAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 40))
         self.textView.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: textViewChellenge.topAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 28))
         
-//        let stackView = UIStackView(arrangedSubviews: [textView, textViewChellenge])
-//        self.viewWrapper.addSubview(stackView)
-//        stackView.axis = .vertical
-//        stackView.setAnchor(top: nil, leading: viewWrapper.leadingAnchor, bottom: viewWrapper.bottomAnchor, trailing: viewWrapper.trailingAnchor, size: .init(width: viewWrapper.frame.width, height: 200))
-        
         self.addSubview(viewWrapper)
         self.viewWrapper.fillSuperview()
+    }
+    
+    override func didMoveToSuperview() {
         
+        setUpView()
     }
     
     

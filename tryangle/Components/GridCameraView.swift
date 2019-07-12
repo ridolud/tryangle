@@ -19,11 +19,13 @@ class GridCameraView: UIView {
         
         for n in 1...2 {
             let gridV = UIView(frame: CGRect(x: CGFloat(width/3) * CGFloat(n), y: 0, width: 1, height: height))
-            gridV.backgroundColor = .black
+            gridV.backgroundColor = .white
+            gridV.alpha = 0.4
             self.addSubview(gridV);
             
             let gridH = UIView(frame: CGRect(x: 0, y: CGFloat(height/3) * CGFloat(n), width: width, height: 1))
-            gridH.backgroundColor = .black
+            gridH.backgroundColor = .white
+            gridH.alpha = 0.4
             self.addSubview(gridH);
         }
     }

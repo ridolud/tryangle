@@ -18,6 +18,7 @@
 		7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCB22D593DD00868484 /* GenreController.swift */; };
 		7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCE22D5994A00868484 /* GenreCell.swift */; };
 		7F95ABD122D59A9100868484 /* Estensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABD022D59A9100868484 /* Estensions+UIView.swift */; };
+		7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96B68622D869D000FEACDA /* GridCameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		7F95ABCB22D593DD00868484 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
 		7F95ABCE22D5994A00868484 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		7F95ABD022D59A9100868484 /* Estensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Estensions+UIView.swift"; sourceTree = "<group>"; };
+		7F96B68622D869D000FEACDA /* GridCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */,
 				7F95ABCE22D5994A00868484 /* GenreCell.swift */,
+				7F96B68622D869D000FEACDA /* GridCameraView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */,
 				7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */,
 				7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */,
+				7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */,
 				7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */,
 				7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */,
 			);

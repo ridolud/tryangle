@@ -12,7 +12,7 @@ import ARKit
 class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var intractionLabel: UILabel!
+    @IBOutlet weak var interactionLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var centerTriggerButton: UIButton!
     
@@ -61,7 +61,6 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     var selectedPlane: VirtualPlane?
     
     var sceneOobject: SCNNode!
-    var currentObject: SCNNode!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +100,7 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     }
 
     @IBAction func takePicture(_ sender: UIButton) {
+        sceneOobject.opacity = 1
         currentPlaneObjectState = .added
     }
     
@@ -111,7 +111,8 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     func arSessionStart() {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
-        
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.automaticallyUpdatesLighting = true
         sceneView.session.run( config )
     }
     

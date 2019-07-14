@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="1026.0869565217392" y="916.74107142857133"/>
         </scene>
-        <!--Camera Controller-->
+        <!--AR Camera Controller-->
         <scene sceneID="csw-Yz-4sP">
             <objects>
-                <viewController id="hFt-UX-Qn2" customClass="ARCameraController" customModule="tryangle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hFt-UX-Qn2" userLabel="AR Camera Controller" customClass="ARCameraController" customModule="tryangle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wEM-mK-l54">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,6 +119,15 @@
                             </arscnView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzv-9H-6JR" customClass="GridCameraView" customModule="tryangle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to place your food" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQQ-Ws-CxB">
+                                        <rect key="frame" x="17" y="168" width="380" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eya-7O-BW0">
@@ -152,6 +161,17 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcA-3C-4Pu">
+                                        <rect key="frame" x="343" y="95" width="56" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Restart">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ressetObject:" destination="hFt-UX-Qn2" eventType="touchUpInside" id="Qo2-bJ-CUD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -185,7 +205,10 @@
                         <viewLayoutGuide key="safeArea" id="tdT-gb-uSc"/>
                     </view>
                     <connections>
+                        <outlet property="centerTriggerButton" destination="Ld9-Yj-EJy" id="GEV-d1-ETx"/>
+                        <outlet property="interactionLabel" destination="RJd-c9-2lb" id="FX5-8u-gGR"/>
                         <outlet property="sceneView" destination="6AY-RW-dd5" id="SLT-yk-eyi"/>
+                        <outlet property="statusLabel" destination="JQQ-Ws-CxB" id="h4t-MO-QsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM7-8p-wWA" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A58212222DACD21004D18BB /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58212122DACD21004D18BB /* PreviewController.swift */; };
 		7A73B90822D9B9CB002E2231 /* Backup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90722D9B9CB002E2231 /* Backup.storyboard */; };
 		7A73B90A22D9BFF9002E2231 /* ComparingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73B90922D9BFF9002E2231 /* ComparingController.swift */; };
 		7A73B90E22D9C0E7002E2231 /* Low.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90B22D9C0E7002E2231 /* Low.jpg */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A58212122DACD21004D18BB /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		7A73B90722D9B9CB002E2231 /* Backup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Backup.storyboard; sourceTree = "<group>"; };
 		7A73B90922D9BFF9002E2231 /* ComparingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingController.swift; sourceTree = "<group>"; };
 		7A73B90B22D9C0E7002E2231 /* Low.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Low.jpg; sourceTree = "<group>"; };
@@ -66,8 +68,8 @@
 		7A73B90022D9B8C5002E2231 /* Temp Photo */ = {
 			isa = PBXGroup;
 			children = (
-				7A73B90C22D9C0E7002E2231 /* Eye.jpg */,
 				7A73B90D22D9C0E7002E2231 /* High.jpg */,
+				7A73B90C22D9C0E7002E2231 /* Eye.jpg */,
 				7A73B90B22D9C0E7002E2231 /* Low.jpg */,
 			);
 			path = "Temp Photo";
@@ -117,11 +119,12 @@
 			isa = PBXGroup;
 			children = (
 				7A73B91322D9FDC0002E2231 /* CustomButton.swift */,
-				7A73B90922D9BFF9002E2231 /* ComparingController.swift */,
-				7A73B91122D9DF15002E2231 /* TipsShareController.swift */,
 				7F1CF8F822CD113C0062DB61 /* CameraController.swift */,
 				7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */,
 				7F95ABCB22D593DD00868484 /* GenreController.swift */,
+				7A73B90922D9BFF9002E2231 /* ComparingController.swift */,
+				7A58212122DACD21004D18BB /* PreviewController.swift */,
+				7A73B91122D9DF15002E2231 /* TipsShareController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				7A73B90A22D9BFF9002E2231 /* ComparingController.swift in Sources */,
 				7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */,
 				7A73B91422D9FDC0002E2231 /* CustomButton.swift in Sources */,
+				7A58212222DACD21004D18BB /* PreviewController.swift in Sources */,
 				7A73B91222D9DF15002E2231 /* TipsShareController.swift in Sources */,
 				7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */,
 				7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */,

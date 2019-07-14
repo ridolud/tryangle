@@ -212,22 +212,25 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="174-dE-qyn">
                                 <rect key="frame" x="117" y="158" width="180" height="580"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L19-Ud-E2X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L19-Ud-E2X">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" image="High.jpg"/>
                                         <connections>
                                             <action selector="imageButtonsDidTap:" destination="9ug-QL-xPk" eventType="touchUpInside" id="d4Q-CY-4oU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-i9-uhE">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-i9-uhE">
                                         <rect key="frame" x="0.0" y="200" width="180" height="180"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" image="Eye.jpg"/>
                                         <connections>
                                             <action selector="imageButtonsDidTap:" destination="9ug-QL-xPk" eventType="touchUpInside" id="Tvf-pC-kfc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5B-hK-Itg">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5B-hK-Itg">
                                         <rect key="frame" x="0.0" y="400" width="180" height="180"/>
+                                        <gestureRecognizers/>
                                         <state key="normal" image="Low.jpg"/>
                                         <connections>
                                             <action selector="imageButtonsDidTap:" destination="9ug-QL-xPk" eventType="touchUpInside" id="emL-NF-zbo"/>
@@ -282,7 +285,8 @@
                         <outletCollection property="imageButtons" destination="L19-Ud-E2X" collectionClass="NSMutableArray" id="bxW-aF-pI5"/>
                         <outletCollection property="imageButtons" destination="cNE-i9-uhE" collectionClass="NSMutableArray" id="4Lh-aQ-Wod"/>
                         <outletCollection property="imageButtons" destination="W5B-hK-Itg" collectionClass="NSMutableArray" id="QNU-z9-Sa4"/>
-                        <segue destination="uyP-YX-Jsu" kind="show" identifier="TipsShare" id="0B9-Cj-rE3"/>
+                        <segue destination="uyP-YX-Jsu" kind="show" identifier="TipsShare" id="dJn-9N-KXK"/>
+                        <segue destination="XD7-YA-IX2" kind="show" identifier="Preview" id="5gj-ts-Lew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fla-c0-nyz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,7 +387,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="y8v-mI-cuj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.24313914775848389" green="0.24313384294509888" blue="0.2431374192237854" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -393,27 +397,41 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9ug-QL-xPk" kind="relationship" relationship="rootViewController" id="Pxm-wl-Egh"/>
+                        <segue destination="9ug-QL-xPk" kind="relationship" relationship="rootViewController" id="7fS-bI-K40"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-uf-rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.6376811594205" y="1856.9196428571427"/>
         </scene>
-        <!--View Controller-->
+        <!--Preview Screen-->
         <scene sceneID="ukd-h4-Fa3">
             <objects>
-                <viewController id="XD7-YA-IX2" sceneMemberID="viewController">
+                <viewController id="XD7-YA-IX2" userLabel="Preview Screen" customClass="PreviewController" customModule="tryangle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oEB-0b-ZUt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="E3f-u5-ejY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="E3f-u5-ejY" firstAttribute="leading" secondItem="oEB-0b-ZUt" secondAttribute="leading" id="C9h-gs-ADk"/>
+                            <constraint firstItem="E3f-u5-ejY" firstAttribute="width" secondItem="oEB-0b-ZUt" secondAttribute="width" id="ZOk-Nx-ONQ"/>
+                            <constraint firstItem="E3f-u5-ejY" firstAttribute="bottom" secondItem="oEB-0b-ZUt" secondAttribute="bottom" id="iky-zd-37H"/>
+                            <constraint firstItem="E3f-u5-ejY" firstAttribute="top" secondItem="oEB-0b-ZUt" secondAttribute="top" id="tfh-pc-P0U"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="J6B-xG-6gb"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="E3f-u5-ejY" id="xiR-Kk-Ejl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmK-xm-Ufd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2861" y="1093"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="2613.6160714285711"/>
         </scene>
     </scenes>
     <resources>

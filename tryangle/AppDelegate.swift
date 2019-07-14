@@ -97,5 +97,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return self.restrictRotation
     }
 
+    
 }
 

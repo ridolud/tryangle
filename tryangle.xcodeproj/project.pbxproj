@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A58212222DACD21004D18BB /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58212122DACD21004D18BB /* PreviewController.swift */; };
+		7A73B90822D9B9CB002E2231 /* Backup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90722D9B9CB002E2231 /* Backup.storyboard */; };
+		7A73B90A22D9BFF9002E2231 /* ComparingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73B90922D9BFF9002E2231 /* ComparingController.swift */; };
+		7A73B90E22D9C0E7002E2231 /* Low.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90B22D9C0E7002E2231 /* Low.jpg */; };
+		7A73B90F22D9C0E7002E2231 /* Eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90C22D9C0E7002E2231 /* Eye.jpg */; };
+		7A73B91022D9C0E7002E2231 /* High.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90D22D9C0E7002E2231 /* High.jpg */; };
+		7A73B91222D9DF15002E2231 /* TipsShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73B91122D9DF15002E2231 /* TipsShareController.swift */; };
+		7A73B91422D9FDC0002E2231 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73B91322D9FDC0002E2231 /* CustomButton.swift */; };
 		7F1CF8DF22CD0E480062DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */; };
 		7F1CF8E422CD0E480062DB61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CF8E222CD0E480062DB61 /* Main.storyboard */; };
 		7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8E522CD0E480062DB61 /* tryangle.xcdatamodeld */; };
@@ -23,6 +31,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A58212122DACD21004D18BB /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		7A73B90722D9B9CB002E2231 /* Backup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Backup.storyboard; sourceTree = "<group>"; };
+		7A73B90922D9BFF9002E2231 /* ComparingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparingController.swift; sourceTree = "<group>"; };
+		7A73B90B22D9C0E7002E2231 /* Low.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Low.jpg; sourceTree = "<group>"; };
+		7A73B90C22D9C0E7002E2231 /* Eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Eye.jpg; sourceTree = "<group>"; };
+		7A73B90D22D9C0E7002E2231 /* High.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = High.jpg; sourceTree = "<group>"; };
+		7A73B91122D9DF15002E2231 /* TipsShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsShareController.swift; sourceTree = "<group>"; };
+		7A73B91322D9FDC0002E2231 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7F1CF8DB22CD0E480062DB61 /* tryangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tryangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F1CF8E322CD0E480062DB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A73B90022D9B8C5002E2231 /* Temp Photo */ = {
+			isa = PBXGroup;
+			children = (
+				7A73B90D22D9C0E7002E2231 /* High.jpg */,
+				7A73B90C22D9C0E7002E2231 /* Eye.jpg */,
+				7A73B90B22D9C0E7002E2231 /* Low.jpg */,
+			);
+			path = "Temp Photo";
+			sourceTree = "<group>";
+		};
 		7F1CF8D222CD0E480062DB61 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				7F2E5B0322DB125900E5E8E7 /* Extensions */,
+				7A73B90022D9B8C5002E2231 /* Temp Photo */,
 				7F93AD1C22D47B73007ED2C0 /* Views */,
 				7F1CF8F722CD0EA00062DB61 /* Components */,
 				7F1CF8F422CD0E680062DB61 /* Controllers */,
@@ -93,9 +120,13 @@
 		7F1CF8F422CD0E680062DB61 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7A73B91322D9FDC0002E2231 /* CustomButton.swift */,
 				7F1CF8F822CD113C0062DB61 /* CameraController.swift */,
 				7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */,
 				7F95ABCB22D593DD00868484 /* GenreController.swift */,
+				7A73B90922D9BFF9002E2231 /* ComparingController.swift */,
+				7A58212122DACD21004D18BB /* PreviewController.swift */,
+				7A73B91122D9DF15002E2231 /* TipsShareController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -124,6 +155,7 @@
 			children = (
 				7F1CF8E222CD0E480062DB61 /* Main.storyboard */,
 				7F1CF8EA22CD0E490062DB61 /* LaunchScreen.storyboard */,
+				7A73B90722D9B9CB002E2231 /* Backup.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,7 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F1CF8EC22CD0E490062DB61 /* LaunchScreen.storyboard in Resources */,
+				7A73B90E22D9C0E7002E2231 /* Low.jpg in Resources */,
 				7F1CF8E922CD0E490062DB61 /* Assets.xcassets in Resources */,
+				7A73B90F22D9C0E7002E2231 /* Eye.jpg in Resources */,
+				7A73B90822D9B9CB002E2231 /* Backup.storyboard in Resources */,
+				7A73B91022D9C0E7002E2231 /* High.jpg in Resources */,
 				7F1CF8E422CD0E480062DB61 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +242,11 @@
 				7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */,
 				7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */,
 				7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */,
+				7A73B90A22D9BFF9002E2231 /* ComparingController.swift in Sources */,
 				7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */,
+				7A73B91422D9FDC0002E2231 /* CustomButton.swift in Sources */,
+				7A58212222DACD21004D18BB /* PreviewController.swift in Sources */,
+				7A73B91222D9DF15002E2231 /* TipsShareController.swift in Sources */,
 				7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */,
 				7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */,
 			);

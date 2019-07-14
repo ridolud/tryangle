@@ -13,8 +13,8 @@ class GenreCell: UICollectionViewCell {
     let viewWrapper = UIView()
     let imageView = UIImageView()
     
-    let textView = UITextView()
-    let textViewChellenge = UITextView()
+    let textView = UILabel()
+    let textViewChellenge = UILabel()
     
     override func didAddSubview(_ subview: UIView) {
         self.layer.cornerRadius = 10
@@ -22,6 +22,12 @@ class GenreCell: UICollectionViewCell {
         
         
     }
+    
+    // MARK: Stylesheet
+    let colorLabel = UIColor.black
+    let bacgroundColorLabel = UIColor.white
+    let paddingLabel = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    
     
     fileprivate func setUpView() {
         // Setup View
@@ -31,6 +37,10 @@ class GenreCell: UICollectionViewCell {
         self.textViewChellenge.text = "2/10"
         self.viewWrapper.addSubview(imageView)
         self.imageView.fillSuperview()
+        
+        self.textView.backgroundColor = bacgroundColorLabel
+        self.textViewChellenge.backgroundColor = bacgroundColorLabel
+        
         
         self.viewWrapper.addSubview(textView)
         self.viewWrapper.addSubview(textViewChellenge)

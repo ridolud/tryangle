@@ -22,6 +22,8 @@
 		7F1CF8EC22CD0E490062DB61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CF8EA22CD0E490062DB61 /* LaunchScreen.storyboard */; };
 		7F1CF8F922CD113C0062DB61 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8F822CD113C0062DB61 /* CameraController.swift */; };
 		7F2E5B0522DB128000E5E8E7 /* VirtualPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */; };
+		7F3ED3E222DC75610002138C /* sushiroll.scn in Resources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E122DC75610002138C /* sushiroll.scn */; };
+		7F3ED3E422DCE2F60002138C /* HelperState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E322DCE2F60002138C /* HelperState.swift */; };
 		7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */; };
 		7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */; };
 		7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCB22D593DD00868484 /* GenreController.swift */; };
@@ -48,6 +50,8 @@
 		7F1CF8ED22CD0E490062DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F1CF8F822CD113C0062DB61 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPlane.swift; sourceTree = "<group>"; };
+		7F3ED3E122DC75610002138C /* sushiroll.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = sushiroll.scn; path = ../../../../../../../../Downloads/sushiroll.scn; sourceTree = "<group>"; };
+		7F3ED3E322DCE2F60002138C /* HelperState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperState.swift; sourceTree = "<group>"; };
 		7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveCameraView.swift; sourceTree = "<group>"; };
 		7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraController.swift; sourceTree = "<group>"; };
 		7F95ABCB22D593DD00868484 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		7F1CF8DD22CD0E480062DB61 /* tryangle */ = {
 			isa = PBXGroup;
 			children = (
+				7F3ED3DF22DC75000002138C /* 3dAssets */,
 				7F2E5B0322DB125900E5E8E7 /* Extensions */,
 				7A73B90022D9B8C5002E2231 /* Temp Photo */,
 				7F93AD1C22D47B73007ED2C0 /* Views */,
@@ -146,8 +151,25 @@
 			children = (
 				7F95ABD022D59A9100868484 /* Estensions+UIView.swift */,
 				7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */,
+				7F3ED3E322DCE2F60002138C /* HelperState.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F3ED3DF22DC75000002138C /* 3dAssets */ = {
+			isa = PBXGroup;
+			children = (
+				7F3ED3E022DC751D0002138C /* sushiroll */,
+			);
+			path = 3dAssets;
+			sourceTree = "<group>";
+		};
+		7F3ED3E022DC751D0002138C /* sushiroll */ = {
+			isa = PBXGroup;
+			children = (
+				7F3ED3E122DC75610002138C /* sushiroll.scn */,
+			);
+			path = sushiroll;
 			sourceTree = "<group>";
 		};
 		7F93AD1C22D47B73007ED2C0 /* Views */ = {
@@ -222,6 +244,7 @@
 				7A73B90E22D9C0E7002E2231 /* Low.jpg in Resources */,
 				7F1CF8E922CD0E490062DB61 /* Assets.xcassets in Resources */,
 				7A73B90F22D9C0E7002E2231 /* Eye.jpg in Resources */,
+				7F3ED3E222DC75610002138C /* sushiroll.scn in Resources */,
 				7A73B90822D9B9CB002E2231 /* Backup.storyboard in Resources */,
 				7A73B91022D9C0E7002E2231 /* High.jpg in Resources */,
 				7F1CF8E422CD0E480062DB61 /* Main.storyboard in Resources */,
@@ -247,6 +270,7 @@
 				7A73B91422D9FDC0002E2231 /* CustomButton.swift in Sources */,
 				7A58212222DACD21004D18BB /* PreviewController.swift in Sources */,
 				7A73B91222D9DF15002E2231 /* TipsShareController.swift in Sources */,
+				7F3ED3E422DCE2F60002138C /* HelperState.swift in Sources */,
 				7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */,
 				7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */,
 			);

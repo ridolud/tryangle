@@ -16,25 +16,6 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var centerTriggerButton: UIButton!
     
-    enum PlaneObjectSessiontState: String, CustomStringConvertible {
-        case initialized = "initialized", ready = "ready", temporarilyUnavailable = "temporarily unavailable", failed = "failed", added = "added"
-        
-        var description: String {
-            switch self {
-            case .initialized:
-                return "Look for a plane to place your object"
-            case .ready:
-                return "Ready to place your coffee!"
-            case .temporarilyUnavailable:
-                return "Please wait.."
-            case .failed:
-                return "Error, Please restart App."
-            case .added:
-                return "Object added"
-            }
-        }
-    }
-    
     var planes = [UUID: VirtualPlane]() {
         didSet {
             if planes.count > 0 {
@@ -193,21 +174,15 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
         }
     }
     
-//    func addCObjectToPlane(plane: VirtualPlane, atPoint point: CGPoint) {
-//        let hits = sceneView.hitTest(point, types: .existingPlaneUsingExtent)
-//        if hits.count > 0, let firstHit = hits.first {
-//            if let objectNode = sceneOobject {
-//                //objectNode.scale = SCNVector3(0.2, 0.2, 0.2)
-//                objectNode.position = SCNVector3Make(firstHit.worldTransform.columns.3.x, firstHit.worldTransform.columns.3.y, firstHit.worldTransform.columns.3.z)
-//            }
-//        }
-//    }
-
-    
     func cleanUpSceneView() {
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
             node.removeFromParentNode()
         }
     }
-
+    
+    @IBAction func cencleBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
 }

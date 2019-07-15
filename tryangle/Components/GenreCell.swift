@@ -32,8 +32,6 @@ class GenreCell: UICollectionViewCell {
     
     
     fileprivate func setUpView() {
-        // Setup View
-        
         
         labelWrapper.backgroundColor = .white
         
@@ -52,7 +50,6 @@ class GenreCell: UICollectionViewCell {
         labelWrapper.addSubview(textViewChellenge)
 
         self.textView.setAnchor(top: labelWrapper.topAnchor, leading: labelWrapper.leadingAnchor, bottom: nil, trailing: labelWrapper.trailingAnchor, padding: .init(top: 10, left: 15, bottom: 0, right: 15), size: .init(width: labelWrapper.frame.width, height: 30))
-        
         self.textViewChellenge.setAnchor(top: nil, leading: labelWrapper.leadingAnchor, bottom: labelWrapper.bottomAnchor, trailing: labelWrapper.trailingAnchor, padding: .init(top: 0, left: 15, bottom: 10, right: 15), size: .init(width: labelWrapper.frame.width, height: 30))
         
         

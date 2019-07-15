@@ -15,5 +15,7 @@ extension ARSCNView {
     // Get range beetwen object and camera
     
     // Is't in save area to take photo ?
+    
+    // Is't in same angle position ?
 
 }

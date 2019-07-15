@@ -10,7 +10,8 @@ import UIKit
 
 enum PlaneObjectSessiontState: String, CustomStringConvertible {
     
-    case initialized            = "initialized",
+    case
+        initialized             = "initialized",
         ready                   = "ready",
         temporarilyUnavailable  = "temporarily unavailable",
         failed                  = "failed",
@@ -30,5 +31,17 @@ enum PlaneObjectSessiontState: String, CustomStringConvertible {
             return "Object added"
         }
     }
+    
+}
+
+enum AngleStepStatus: String {
+    
+    case
+        initialized             = "initialized",
+        addingObject            = "adding object",
+        lowAngle                = "low angel",
+        eyeAngle                = "eye angle",
+        highAngle               = "high angle",
+        finished                = "finished"
     
 }

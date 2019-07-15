@@ -24,6 +24,8 @@
 		7F2E5B0522DB128000E5E8E7 /* VirtualPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */; };
 		7F3ED3E222DC75610002138C /* sushiroll.scn in Resources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E122DC75610002138C /* sushiroll.scn */; };
 		7F3ED3E422DCE2F60002138C /* HelperState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E322DCE2F60002138C /* HelperState.swift */; };
+		7F3ED3E622DCE4B90002138C /* ARSCNameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E522DCE4B90002138C /* ARSCNameraView.swift */; };
+		7F3ED3E822DCE7870002138C /* Extensions+ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */; };
 		7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */; };
 		7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */; };
 		7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCB22D593DD00868484 /* GenreController.swift */; };
@@ -52,6 +54,8 @@
 		7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPlane.swift; sourceTree = "<group>"; };
 		7F3ED3E122DC75610002138C /* sushiroll.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = sushiroll.scn; path = ../../../../../../../../Downloads/sushiroll.scn; sourceTree = "<group>"; };
 		7F3ED3E322DCE2F60002138C /* HelperState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperState.swift; sourceTree = "<group>"; };
+		7F3ED3E522DCE4B90002138C /* ARSCNameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNameraView.swift; sourceTree = "<group>"; };
+		7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ARSCNView.swift"; sourceTree = "<group>"; };
 		7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveCameraView.swift; sourceTree = "<group>"; };
 		7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraController.swift; sourceTree = "<group>"; };
 		7F95ABCB22D593DD00868484 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */,
 				7F95ABCE22D5994A00868484 /* GenreCell.swift */,
 				7F96B68622D869D000FEACDA /* GridCameraView.swift */,
+				7F3ED3E522DCE4B90002138C /* ARSCNameraView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				7F95ABD022D59A9100868484 /* Estensions+UIView.swift */,
 				7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */,
 				7F3ED3E322DCE2F60002138C /* HelperState.swift */,
+				7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3ED3E822DCE7870002138C /* Extensions+ARSCNView.swift in Sources */,
 				7F1CF8DF22CD0E480062DB61 /* AppDelegate.swift in Sources */,
 				7F95ABD122D59A9100868484 /* Estensions+UIView.swift in Sources */,
 				7F2E5B0522DB128000E5E8E7 /* VirtualPlane.swift in Sources */,
@@ -265,6 +272,7 @@
 				7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */,
 				7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */,
 				7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */,
+				7F3ED3E622DCE4B90002138C /* ARSCNameraView.swift in Sources */,
 				7A73B90A22D9BFF9002E2231 /* ComparingController.swift in Sources */,
 				7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */,
 				7A73B91422D9FDC0002E2231 /* CustomButton.swift in Sources */,

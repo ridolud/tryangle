@@ -60,7 +60,9 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     
     var selectedPlane: VirtualPlane?
     
-    var sceneOobject: SCNNode!
+    var sceneObject: SCNNode!
+    
+    var sceneObjectActive: SCNNode!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +81,10 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        arSessionStart()
-        init3dObject()
+        DispatchQueue.main.async {
+            self.arSessionStart()
+            self.init3dObject()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -93,19 +96,27 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     func init3dObject() {
         
         let ball = SCNSphere(radius: 0.02)
-        sceneOobject = SCNNode(geometry: ball)
-        sceneOobject.position = SCNVector3(0,0,0)
-        sceneOobject.opacity = 0
-        sceneView.scene.rootNode.addChildNode(sceneOobject)
+        sceneObject = SCNNode(geometry: ball)
+        sceneObject.position = SCNVector3(0,0,0)
+        sceneObject.opacity = 0
+        sceneView.scene.rootNode.addChildNode(sceneObject)
     }
 
     @IBAction func takePicture(_ sender: UIButton) {
-        sceneOobject.opacity = 1
-        currentPlaneObjectState = .added
+        if currentPlaneObjectState == .ready {
+            sceneObjectActive = sceneObject.clone()
+            sceneObjectActive.opacity = 1
+            sceneObject.opacity = 0
+            currentPlaneObjectState = .added
+            sceneView.scene.rootNode.addChildNode(sceneObjectActive)
+        }
     }
     
     @IBAction func ressetObject(_ sender: UIButton) {
-        currentPlaneObjectState = .initialized
+        if currentPlaneObjectState == .added {
+            sceneObjectActive.removeFromParentNode()
+            currentPlaneObjectState = .initialized
+        }
     }
     
     func arSessionStart() {
@@ -154,7 +165,7 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
                 self.selectedPlane = plane
                 self.currentPlaneObjectState = .ready
                 self.centerTriggerButton.alpha = 1
-                self.sceneOobject.opacity = 0.4
+                self.sceneObject.opacity = 0.4
                 self.updatePositionObject(atPoint: center)
             } else {
                 self.currentPlaneObjectState = .temporarilyUnavailable
@@ -175,7 +186,7 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
     func updatePositionObject(atPoint point: CGPoint) {
         let hits = sceneView.hitTest(point, types: .existingPlaneUsingExtent)
         if hits.count > 0, let firstHit = hits.first {
-            if let objectNode = sceneOobject {
+            if let objectNode = sceneObject {
                 // TODO: masih belum bisa menampilkan indikator
                 objectNode.position = SCNVector3Make(firstHit.worldTransform.columns.3.x, firstHit.worldTransform.columns.3.y, firstHit.worldTransform.columns.3.z)
             }

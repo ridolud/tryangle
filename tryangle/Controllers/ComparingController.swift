@@ -18,8 +18,9 @@ class ComparingController: UIViewController {
     var sendImage: UIImage?
     var sendTitle: String?
     var titleNames = ["High", "Eye", "Low"]
-    var imageButtonNames = ["High.jpg", "Eye.jpg", "Low.jpg"]
+//    var imageButtonNames = ["High.jpg", "Eye.jpg", "Low.jpg"]
 //    var imageButtonNames = ["High2.jpg", "Eye2.jpg", "Low2.jpg"]
+    var imageButtonNames = ["High.jpg", "Eye2.jpg", "Low2.jpg"]
     
     
     override func viewDidLoad() {
@@ -37,6 +38,11 @@ class ComparingController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     @objc func multipleTap(_ sender: UIButton, event: UIEvent) {
         let touch: UITouch = event.allTouches!.first!
         if (touch.tapCount == 2) {
@@ -49,13 +55,15 @@ class ComparingController: UIViewController {
     var navigationBarAppearace = UINavigationBar.appearance()
 
     var imageButton: UIButton?
+    var imageButtonFrameOrigin: CGRect?
     
     func animateImageButton(imageButton: UIButton) {
-        self.imageButton = imageButton
+//        self.imageButton = imageButton
         
-        if let imageButtonFrame = imageButton.superview?.convert(imageButton.frame, from: self.view) {
-            
-            print(imageButtonFrame)
+        if let imageButtonFrame = imageButton.superview?.convert(imageButton.frame, to: nil) {
+//            print(imageButtonFrame)
+            self.imageButton = imageButton
+            self.imageButtonFrameOrigin = imageButtonFrame
             zoomImageButton.frame = imageButtonFrame
         }
 //        let imageButtonFrame = imageButton.convert(imageButton.frame, from: self.view)
@@ -74,14 +82,12 @@ class ComparingController: UIViewController {
         zoomImageButton.contentMode = .scaleAspectFit
         view.addSubview(zoomImageButton)
         
-//        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(zoomOut))
-//        swipeGestureRecognizer.direction = .up
-//        zoomImageButton.addGestureRecognizer(swipeGestureRecognizer)
-//        swipeGestureRecognizer.direction = .down
-//        zoomImageButton.addGestureRecognizer(swipeGestureRecognizer)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(zoomOut))
         tapGestureRecognizer.numberOfTapsRequired = 1
         zoomImageButton.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(zoomOut))
+        tapGestureRecognizer2.numberOfTapsRequired = 1
+        blackBackgroundView.addGestureRecognizer(tapGestureRecognizer2)
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
             
@@ -100,8 +106,12 @@ class ComparingController: UIViewController {
     }
     
     @objc func zoomOut() {
-        guard let imageButtonFrame = self.imageButton?.convert(self.imageButton!.frame, from: self.view) else { return }
-        let startingFrame = CGRect(x: -imageButtonFrame.minX, y: -imageButtonFrame.minY, width: imageButtonFrame.width, height: imageButtonFrame.height)
+//        guard let imageButtonFrame = self.imageButton?.convert(self.imageButton!.frame, to: nil) else { return }
+//        print(self.imageButton?.frame)
+//        guard let imageButtonFrame = self.imageButton?.convert(self.imageButton!.frame, to: nil) else { return }
+//        print(imageButtonFrame)
+        guard let startingFrame = imageButtonFrameOrigin else { return }
+//            CGRect(x: -imageButtonFrame.minX, y: -imageButtonFrame.minY, width: imageButtonFrame.width, height: imageButtonFrame.height)
         
 //        self.navigationController?.isNavigationBarHidden = false
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
@@ -154,7 +164,6 @@ class ComparingController: UIViewController {
             previewVC.receivedImage = sendImage
             previewVC.receivedTitle = sendTitle
         }
-        
         
     }
     

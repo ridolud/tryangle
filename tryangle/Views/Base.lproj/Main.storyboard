@@ -235,7 +235,7 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="174-dE-qyn">
                                 <rect key="frame" x="117" y="158" width="180" height="580"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L19-Ud-E2X">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L19-Ud-E2X" customClass="CustomImageButton" customModule="tryangle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="High.jpg"/>
@@ -243,7 +243,7 @@
                                             <action selector="imageButtonsDidTap:" destination="9ug-QL-xPk" eventType="touchUpInside" id="d4Q-CY-4oU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-i9-uhE">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-i9-uhE" customClass="CustomImageButton" customModule="tryangle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="180" height="180"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="Eye.jpg"/>
@@ -251,7 +251,7 @@
                                             <action selector="imageButtonsDidTap:" destination="9ug-QL-xPk" eventType="touchUpInside" id="Tvf-pC-kfc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5B-hK-Itg">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5B-hK-Itg" customClass="CustomImageButton" customModule="tryangle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="400" width="180" height="180"/>
                                         <gestureRecognizers/>
                                         <state key="normal" image="Low.jpg"/>
@@ -305,6 +305,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="0Ub-Ry-JBX" id="pub-mL-L1K"/>
+                        <outlet property="stackView" destination="174-dE-qyn" id="CZN-ZC-YSI"/>
                         <outletCollection property="imageButtons" destination="L19-Ud-E2X" collectionClass="NSMutableArray" id="bxW-aF-pI5"/>
                         <outletCollection property="imageButtons" destination="cNE-i9-uhE" collectionClass="NSMutableArray" id="4Lh-aQ-Wod"/>
                         <outletCollection property="imageButtons" destination="W5B-hK-Itg" collectionClass="NSMutableArray" id="QNU-z9-Sa4"/>
@@ -347,18 +348,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bba-2b-IHZ">
-                                <rect key="frame" x="20" y="140" width="374" height="500"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="ih7-qK-ug7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bba-2b-IHZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="199"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" Pizza are usually take on High Angle shot because it will show the entire pizza topping at the surface" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avr-oG-5up">
+                                        <rect key="frame" x="20" y="259" width="374" height="417"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="bba-2b-IHZ" secondAttribute="height" multiplier="187:250" id="KgE-LY-RhO"/>
+                                    <constraint firstAttribute="trailing" secondItem="avr-oG-5up" secondAttribute="trailing" constant="20" id="dHt-EL-IUT"/>
+                                    <constraint firstItem="avr-oG-5up" firstAttribute="leading" secondItem="ih7-qK-ug7" secondAttribute="leading" constant="20" id="mnI-de-ha9"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" Pizza are usually take on High Angle shot because it will show the entire pizza topping at the surface" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avr-oG-5up">
-                                <rect key="frame" x="20" y="700" width="374" height="64"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJM-K5-ng3" customClass="CustomButton" customModule="tryangle" customModuleProvider="target">
                                 <rect key="frame" x="117" y="792" width="180" height="44"/>
                                 <constraints>
@@ -373,15 +380,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="bba-2b-IHZ" firstAttribute="leading" secondItem="pb4-Do-0j3" secondAttribute="leading" constant="20" id="6ld-Pe-q4S"/>
-                            <constraint firstItem="pb4-Do-0j3" firstAttribute="trailing" secondItem="bba-2b-IHZ" secondAttribute="trailing" constant="20" id="ATB-qR-3OA"/>
+                            <constraint firstAttribute="trailing" secondItem="ih7-qK-ug7" secondAttribute="trailing" id="3yz-G7-KtB"/>
+                            <constraint firstItem="qJM-K5-ng3" firstAttribute="top" secondItem="ih7-qK-ug7" secondAttribute="bottom" constant="28" id="6dJ-u1-Gaw"/>
+                            <constraint firstItem="ih7-qK-ug7" firstAttribute="top" secondItem="pb4-Do-0j3" secondAttribute="top" id="6lL-sm-JFr"/>
                             <constraint firstItem="qJM-K5-ng3" firstAttribute="centerX" secondItem="cwH-Nm-fax" secondAttribute="centerX" id="EVb-30-39M"/>
-                            <constraint firstItem="avr-oG-5up" firstAttribute="leading" secondItem="pb4-Do-0j3" secondAttribute="leading" constant="20" id="HHP-o4-x1q"/>
-                            <constraint firstItem="avr-oG-5up" firstAttribute="top" secondItem="bba-2b-IHZ" secondAttribute="bottom" constant="60" id="Wgq-WZ-VYo"/>
                             <constraint firstItem="pb4-Do-0j3" firstAttribute="bottom" secondItem="qJM-K5-ng3" secondAttribute="bottom" constant="26" id="e3P-dY-SRg"/>
-                            <constraint firstItem="bba-2b-IHZ" firstAttribute="top" secondItem="pb4-Do-0j3" secondAttribute="top" constant="52" id="jmw-0x-Isq"/>
-                            <constraint firstItem="qJM-K5-ng3" firstAttribute="top" secondItem="avr-oG-5up" secondAttribute="bottom" constant="28" id="paJ-zh-zRu"/>
-                            <constraint firstAttribute="trailing" secondItem="avr-oG-5up" secondAttribute="trailing" constant="20" id="pi0-2O-xFY"/>
+                            <constraint firstItem="ih7-qK-ug7" firstAttribute="leading" secondItem="pb4-Do-0j3" secondAttribute="leading" id="puz-Ri-Si5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pb4-Do-0j3"/>
                     </view>
@@ -399,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6g-CQ-rLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2861" y="1857"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="1856.9196428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IDB-fG-e0l">

@@ -9,64 +9,23 @@
 import UIKit
 import ARKit
 
-class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
+class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDataSource {
     
-    @IBOutlet weak var sceneView: ARSCNView!
+    // ============================
+    // MARK: Initialized
+    @IBOutlet weak var sceneView: ARSCNCameraView!
     @IBOutlet weak var interactionLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var centerTriggerButton: UIButton!
     
-    enum PlaneObjectSessiontState: String, CustomStringConvertible {
-        case initialized = "initialized", ready = "ready", temporarilyUnavailable = "temporarily unavailable", failed = "failed", added = "added"
-        
-        var description: String {
-            switch self {
-            case .initialized:
-                return "Look for a plane to place your object"
-            case .ready:
-                return "Ready to place your coffee!"
-            case .temporarilyUnavailable:
-                return "Please wait.."
-            case .failed:
-                return "Error, Please restart App."
-            case .added:
-                return "Object added"
-            }
-        }
-    }
-    
-    var planes = [UUID: VirtualPlane]() {
-        didSet {
-            if planes.count > 0 {
-                currentPlaneObjectState = .ready
-            } else {
-                if currentPlaneObjectState == .ready { currentPlaneObjectState = .initialized }
-            }
-        }
-    }
-    
-    var currentPlaneObjectState = PlaneObjectSessiontState.initialized {
-        didSet {
-            DispatchQueue.main.async {
-                self.statusLabel.text = self.currentPlaneObjectState.description
-            }
-            
-            // Clean Session if failed
-            if self.currentPlaneObjectState == .failed {
-                cleanUpSceneView()
-            }
-        }
-    }
-    
-    var selectedPlane: VirtualPlane?
-    
-    var sceneOobject: SCNNode!
+    // Object scene added
+    var sceneObjectActive: SCNNode!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         sceneView.delegate = self
-        sceneView.session.delegate = self
+        sceneView.ARSCNCameraViewDataSource = self
         
         // Disable back button
         self.navigationItem.setHidesBackButton(true, animated: false)
@@ -74,129 +33,104 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSessionDelegate
         
         // Set Title
         self.title = String("Food Photography").uppercased()
-        
     }
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        arSessionStart()
-        init3dObject()
+        DispatchQueue.main.async {
+            self.sceneView.arSessionStart()
+            
+            let objectScene = SCNScene(named: "ObjectMedia.scnassets/sushiroll.scn")!
+            self.sceneView.init3dObject(scene: objectScene, name: "sushiroll")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        arSessionPause()
+        sceneView.arSessionPause()
     }
     
-    func init3dObject() {
-        
-        let ball = SCNSphere(radius: 0.02)
-        sceneOobject = SCNNode(geometry: ball)
-        sceneOobject.position = SCNVector3(0,0,0)
-        sceneOobject.opacity = 0
-        sceneView.scene.rootNode.addChildNode(sceneOobject)
-    }
-
+    // Trigger action.
     @IBAction func takePicture(_ sender: UIButton) {
-        sceneOobject.opacity = 1
-        currentPlaneObjectState = .added
+        if self.sceneView.currentPlaneObjectState == .ready {
+            sceneObjectActive = self.sceneView.sceneObject.clone()
+            sceneObjectActive.opacity = 1
+            self.sceneView.sceneObject.opacity = 0
+            self.sceneView.currentPlaneObjectState = .added
+            sceneView.scene.rootNode.addChildNode(sceneObjectActive)
+        }
     }
     
+    // Reset action.
     @IBAction func ressetObject(_ sender: UIButton) {
-        currentPlaneObjectState = .initialized
+        if self.sceneView.currentPlaneObjectState == .added {
+            sceneObjectActive.removeFromParentNode()
+            self.sceneView.currentPlaneObjectState = .initialized
+        }
     }
     
-    func arSessionStart() {
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = .horizontal
-        sceneView.autoenablesDefaultLighting = true
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.session.run( config )
-    }
     
-    func arSessionPause() {
-        sceneView.session.pause()
-        currentPlaneObjectState = .temporarilyUnavailable
-    }
+    // =======================================
+    // MARK: Plane detections
     
+    // Add new planes object.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let arPlaneAnchor = anchor as? ARPlaneAnchor {
             let plane = VirtualPlane(anchor: arPlaneAnchor)
-            self.planes[arPlaneAnchor.identifier] = plane
+            self.sceneView.planes[arPlaneAnchor.identifier] = plane
             node.addChildNode(plane)
             //print("Plane added: \(plane)")
         }
     }
     
+     // Update planes object.
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let plane = planes[arPlaneAnchor.identifier] {
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let plane = self.sceneView.planes[arPlaneAnchor.identifier] {
             plane.updateWithNewAnchor(arPlaneAnchor)
             //print("Plane updated: \(plane)")
         }
     }
     
+    // Remove plane object if not in accordance with the actual field.
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let index = planes.index(forKey: arPlaneAnchor.identifier) {
-            //print("Plane removed: \(planes[index])")
-            planes.remove(at: index)
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let index = self.sceneView.planes.index(forKey: arPlaneAnchor.identifier) {
+            //print("Plane removed: \(self.sceneView.planes[index])")
+            self.sceneView.planes.remove(at: index)
         }
     }
     
+    // Change plane object selected.
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        if self.currentPlaneObjectState == .added { return }
+        if self.sceneView.currentPlaneObjectState == .added { return }
         DispatchQueue.main.async {
             let center = self.sceneView.center
-            
-            print(self.currentPlaneObjectState)
-            if let plane = self.virtualPlaneProperlySet(for: center) {
-                self.selectedPlane = plane
-                self.currentPlaneObjectState = .ready
+
+            // Debuging
+            print(self.sceneView.currentPlaneObjectState)
+
+            if let plane = self.sceneView.virtualPlaneProperlySet(for: center) {
+                self.sceneView.selectedPlane = plane
+                self.sceneView.currentPlaneObjectState = .ready
                 self.centerTriggerButton.alpha = 1
-                self.sceneOobject.opacity = 0.4
-                self.updatePositionObject(atPoint: center)
+                self.sceneView.sceneObject.opacity = 0.4
+                self.sceneView.updatePositionObject(atPoint: center)
             } else {
-                self.currentPlaneObjectState = .temporarilyUnavailable
+                self.sceneView.currentPlaneObjectState = .temporarilyUnavailable
                 self.centerTriggerButton.alpha = 0.4
             }
         }
     }
     
-    func virtualPlaneProperlySet(for point: CGPoint) -> VirtualPlane? {
-        let hits = sceneView.hitTest(point, types: .existingPlaneUsingExtent)
-        if hits.count > 0, let firstHit = hits.first, let identifier = firstHit.anchor?.identifier, let plane = planes[identifier] {
-            self.selectedPlane = plane
-            return plane
-        }
-        return nil
+    // Taping cencel button to back previous step or genre details view.
+    @IBAction func cencleBtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func updatePositionObject(atPoint point: CGPoint) {
-        let hits = sceneView.hitTest(point, types: .existingPlaneUsingExtent)
-        if hits.count > 0, let firstHit = hits.first {
-            if let objectNode = sceneOobject {
-                // TODO: masih belum bisa menampilkan indikator
-                objectNode.position = SCNVector3Make(firstHit.worldTransform.columns.3.x, firstHit.worldTransform.columns.3.y, firstHit.worldTransform.columns.3.z)
-            }
-        }
+    // if object state change, label text update
+    func currentPlaneObjectState(didUpdate state: PlaneObjectSessiontState) {
+        self.statusLabel.text = state.description
     }
-    
-//    func addCObjectToPlane(plane: VirtualPlane, atPoint point: CGPoint) {
-//        let hits = sceneView.hitTest(point, types: .existingPlaneUsingExtent)
-//        if hits.count > 0, let firstHit = hits.first {
-//            if let objectNode = sceneOobject {
-//                //objectNode.scale = SCNVector3(0.2, 0.2, 0.2)
-//                objectNode.position = SCNVector3Make(firstHit.worldTransform.columns.3.x, firstHit.worldTransform.columns.3.y, firstHit.worldTransform.columns.3.z)
-//            }
-//        }
-//    }
-
-    
-    func cleanUpSceneView() {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
-            node.removeFromParentNode()
-        }
-    }
-
 }
+
+

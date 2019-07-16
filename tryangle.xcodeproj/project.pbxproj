@@ -28,12 +28,17 @@
 		7F1CF8EC22CD0E490062DB61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CF8EA22CD0E490062DB61 /* LaunchScreen.storyboard */; };
 		7F1CF8F922CD113C0062DB61 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8F822CD113C0062DB61 /* CameraController.swift */; };
 		7F2E5B0522DB128000E5E8E7 /* VirtualPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */; };
+		7F3ED3E422DCE2F60002138C /* HelperState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E322DCE2F60002138C /* HelperState.swift */; };
+		7F3ED3E622DCE4B90002138C /* ARSCNCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E522DCE4B90002138C /* ARSCNCameraView.swift */; };
+		7F3ED3E822DCE7870002138C /* Extensions+ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */; };
+		7F3ED3EC22DD067E0002138C /* ObjectMedia.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F3ED3EB22DD067E0002138C /* ObjectMedia.scnassets */; };
 		7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */; };
 		7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */; };
 		7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCB22D593DD00868484 /* GenreController.swift */; };
 		7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCE22D5994A00868484 /* GenreCell.swift */; };
 		7F95ABD122D59A9100868484 /* Estensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABD022D59A9100868484 /* Estensions+UIView.swift */; };
 		7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96B68622D869D000FEACDA /* GridCameraView.swift */; };
+		7FAC989A22DDC454007F6957 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC989922DDC454007F6957 /* GenreModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,12 +65,17 @@
 		7F1CF8ED22CD0E490062DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F1CF8F822CD113C0062DB61 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPlane.swift; sourceTree = "<group>"; };
+		7F3ED3E322DCE2F60002138C /* HelperState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperState.swift; sourceTree = "<group>"; };
+		7F3ED3E522DCE4B90002138C /* ARSCNCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNCameraView.swift; sourceTree = "<group>"; };
+		7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ARSCNView.swift"; sourceTree = "<group>"; };
+		7F3ED3EB22DD067E0002138C /* ObjectMedia.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = ObjectMedia.scnassets; sourceTree = "<group>"; };
 		7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveCameraView.swift; sourceTree = "<group>"; };
 		7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraController.swift; sourceTree = "<group>"; };
 		7F95ABCB22D593DD00868484 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
 		7F95ABCE22D5994A00868484 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		7F95ABD022D59A9100868484 /* Estensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Estensions+UIView.swift"; sourceTree = "<group>"; };
 		7F96B68622D869D000FEACDA /* GridCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCameraView.swift; sourceTree = "<group>"; };
+		7FAC989922DDC454007F6957 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,25 +121,19 @@
 		7F1CF8DD22CD0E480062DB61 /* tryangle */ = {
 			isa = PBXGroup;
 			children = (
+				7FAC988E22DDC059007F6957 /* Models */,
+				7F3ED3EB22DD067E0002138C /* ObjectMedia.scnassets */,
 				7F2E5B0322DB125900E5E8E7 /* Extensions */,
 				7A73B90022D9B8C5002E2231 /* Temp Photo */,
 				7F93AD1C22D47B73007ED2C0 /* Views */,
 				7F1CF8F722CD0EA00062DB61 /* Components */,
 				7F1CF8F422CD0E680062DB61 /* Controllers */,
-				7F1CF8F322CD0E620062DB61 /* Models */,
 				7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */,
 				7F1CF8E822CD0E490062DB61 /* Assets.xcassets */,
 				7F1CF8ED22CD0E490062DB61 /* Info.plist */,
 				7F1CF8E522CD0E480062DB61 /* tryangle.xcdatamodeld */,
 			);
 			path = tryangle;
-			sourceTree = "<group>";
-		};
-		7F1CF8F322CD0E620062DB61 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		7F1CF8F422CD0E680062DB61 /* Controllers */ = {
@@ -152,6 +156,7 @@
 				7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */,
 				7F95ABCE22D5994A00868484 /* GenreCell.swift */,
 				7F96B68622D869D000FEACDA /* GridCameraView.swift */,
+				7F3ED3E522DCE4B90002138C /* ARSCNCameraView.swift */,
 				7A08B24822DDBA2700F74673 /* ObjectGenreCell.swift */,
 				7A73B91322D9FDC0002E2231 /* CustomButton.swift */,
 				7A08B24622DDB33C00F74673 /* CustomImageButton.swift */,
@@ -164,6 +169,8 @@
 			children = (
 				7F95ABD022D59A9100868484 /* Estensions+UIView.swift */,
 				7F2E5B0422DB128000E5E8E7 /* VirtualPlane.swift */,
+				7F3ED3E322DCE2F60002138C /* HelperState.swift */,
+				7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -176,6 +183,14 @@
 				7A73B90722D9B9CB002E2231 /* Backup.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7FAC988E22DDC059007F6957 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FAC989922DDC454007F6957 /* GenreModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F1CF8EC22CD0E490062DB61 /* LaunchScreen.storyboard in Resources */,
+				7F3ED3EC22DD067E0002138C /* ObjectMedia.scnassets in Resources */,
 				7A73B90E22D9C0E7002E2231 /* Low.jpg in Resources */,
 				7A58214C22DC918B004D18BB /* Eye2.jpg in Resources */,
 				7A58214B22DC918B004D18BB /* Low2.jpg in Resources */,
@@ -256,14 +272,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3ED3E822DCE7870002138C /* Extensions+ARSCNView.swift in Sources */,
 				7F1CF8DF22CD0E480062DB61 /* AppDelegate.swift in Sources */,
 				7F95ABD122D59A9100868484 /* Estensions+UIView.swift in Sources */,
+				7FAC989A22DDC454007F6957 /* GenreModel.swift in Sources */,
 				7A08B24922DDBA2700F74673 /* ObjectGenreCell.swift in Sources */,
 				7F2E5B0522DB128000E5E8E7 /* VirtualPlane.swift in Sources */,
 				7F1CF8F922CD113C0062DB61 /* CameraController.swift in Sources */,
 				7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */,
 				7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */,
 				7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */,
+				7F3ED3E622DCE4B90002138C /* ARSCNCameraView.swift in Sources */,
 				7A08B24B22DDBA6700F74673 /* ObjectGenreController.swift in Sources */,
 				7A73B90A22D9BFF9002E2231 /* ComparingController.swift in Sources */,
 				7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */,
@@ -271,6 +290,7 @@
 				7A58212222DACD21004D18BB /* PreviewController.swift in Sources */,
 				7A08B24722DDB33C00F74673 /* CustomImageButton.swift in Sources */,
 				7A73B91222D9DF15002E2231 /* TipsShareController.swift in Sources */,
+				7F3ED3E422DCE2F60002138C /* HelperState.swift in Sources */,
 				7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */,
 				7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */,
 			);
@@ -419,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 497N7524MA;
+				DEVELOPMENT_TEAM = UUHXR699G4;
 				INFOPLIST_FILE = tryangle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -437,7 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 497N7524MA;
+				DEVELOPMENT_TEAM = UUHXR699G4;
 				INFOPLIST_FILE = tryangle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

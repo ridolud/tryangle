@@ -11,6 +11,8 @@ import CoreData
 
 class GenreModel {
     
+    // TODO: masih kosong jika pertama kali buka app.
+    
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var name: String!
@@ -22,7 +24,7 @@ class GenreModel {
     var data: [ Genre ] = []
     
     init() {
-        //
+        self.setDefaultData()
     }
     
     init( name: String, title: String, imageName: String ) {
@@ -33,26 +35,34 @@ class GenreModel {
     
     func save() {
         let reqData = Genre(context: self.context)
+        
         reqData.name = self.name
         reqData.title = self.title
         reqData.image = self.imageUri
         data.append(reqData)
-        do { try self.context.save() }
+        
+        do {
+            try self.context.save()
+            self.fetch()
+        }
         catch { print("Error ... ", error ) }
     }
     
     func save(_ item: Genre) {
         let reqData = Genre(context: self.context)
+        
         reqData.name = item.name
         reqData.title = item.title
         reqData.image = item.image
         data.append(reqData)
+        
         do { try self.context.save() }
         catch { print("Error ... ", error ) }
     }
     
     func fetch() {
         let request: NSFetchRequest = Genre.fetchRequest()
+        
         do { data = try self.context.fetch(request) }
         catch { print("Error .. ", error) }
     }
@@ -62,14 +72,14 @@ class GenreModel {
     
     private var genreTitle: [String] = [ "Food Photography", "Potrait Photography" ]
     
-    private var genreImage: [String] = [ "genre-1", "genre-2" ]
+    private var genreImage: [String] = [ "genre-1", "genre-1" ]
     
     func setDefaultData() {
         self.fetch()
         
-        //let isNotFirstInitApp = UserDefaults.standard.bool(forKey: "isNotFistInitApp")
+        let isNotFirstInitApp = UserDefaults.standard.bool(forKey: "isNotFistInitApp")
         
-        if self.data.count == 0 {
+        if !isNotFirstInitApp {
             
             for n in 0 ... ( self.genreName.count - 1 ) {
                 let genre = GenreModel(
@@ -80,7 +90,9 @@ class GenreModel {
                 genre.save()
             }
             
+            UserDefaults.standard.set(true, forKey: "isNotFistInitApp")
         }
+        
     }
 
 

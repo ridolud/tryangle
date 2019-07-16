@@ -10,6 +10,8 @@ import UIKit
 
 class GenreCell: UICollectionViewCell {
     
+    let genreData: Genre? = nil
+    
     let viewWrapper = UIView()
     let imageView = UIImageView()
     
@@ -35,10 +37,10 @@ class GenreCell: UICollectionViewCell {
         
         labelWrapper.backgroundColor = .white
         
-        self.imageView.image = #imageLiteral(resourceName: "genre-1")
-        self.textView.text = "Test name genre"
+        //self.imageView.image = #imageLiteral(resourceName: "genre-1")
+        // self.textView.text = "Test name genre"
         self.textView.font = .boldSystemFont(ofSize: 17)
-        self.textViewChellenge.text = "2/10"
+        // self.textViewChellenge.text = "2/10"
         self.viewWrapper.addSubview(imageView)
         self.viewWrapper.addSubview(labelWrapper)
     

@@ -12,12 +12,19 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
     
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
+    var genreData: GenreModel = GenreModel()
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        
+        return genreData.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as! GenreCell
+
+        let genre = self.genreData.data[indexPath.row] as Genre
+            cell.imageView.image = UIImage(named: genre.image!)
+            cell.textView.text = genre.title!
         
         return cell
     }
@@ -31,18 +38,18 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
         layout.minimumLineSpacing = 20
         
         genreCollectionView.collectionViewLayout = layout
+        genreCollectionView.reloadData()
     }
     
-    fileprivate func extractedFunc() {
+    fileprivate func setDelegate() {
         genreCollectionView.delegate = self
         genreCollectionView.dataSource = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        extractedFunc()
-        
+
+        setDelegate()
         setUpCollectionView()
     }
 }

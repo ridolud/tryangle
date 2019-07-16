@@ -17,7 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="lYy-hC-JL2">
+                                <rect key="frame" x="110" y="225" width="194" height="185"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTitle" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-hh-Np4">
+                                <rect key="frame" x="115" y="497" width="184" height="78"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.14902088046073914" green="0.14901727437973022" blue="0.1490197479724884" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="lYy-hC-JL2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="181" id="99U-pd-Ih8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xHf-hh-Np4" secondAttribute="trailing" constant="115" id="Sw5-kj-kSV"/>
+                            <constraint firstItem="xHf-hh-Np4" firstAttribute="top" secondItem="lYy-hC-JL2" secondAttribute="bottom" constant="87" id="Z1u-XN-yfH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lYy-hC-JL2" secondAttribute="trailing" constant="110" id="Ze7-DM-K6s"/>
+                            <constraint firstItem="xHf-hh-Np4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="lup-9J-Vbo"/>
+                            <constraint firstItem="lYy-hC-JL2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="yXp-gI-Wq3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -26,4 +42,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-1" width="195" height="185"/>
+        <image name="logoTitle" width="181" height="78"/>
+    </resources>
 </document>

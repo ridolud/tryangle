@@ -21,6 +21,12 @@ class TipsShareController: UIViewController {
         // Do any additional setup after loading the view.
         if let imageFromPrev = receivedImage {
             image.image = imageFromPrev
+            let startingFrame = CGRect(x: 0, y: 0, width: imageFromPrev.size.width, height: imageFromPrev.size.height)
+            print(startingFrame)
+            let height = (self.view.frame.width / imageFromPrev.size.width) * imageFromPrev.size.height
+            image.frame = CGRect(x: startingFrame.minX, y: startingFrame.minY, width: self.view.frame.width, height: height)
+            print(image.frame)
+            image.backgroundColor = .blue
         }
     }
     

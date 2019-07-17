@@ -15,7 +15,8 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // default titles navigation bar 
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -52,4 +52,12 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
         setDelegate()
         setUpCollectionView()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "genreObjectSegue" {
+            guard let indexPath = genreCollectionView.indexPathsForSelectedItems?.first, let objectGenreVC = segue.destination as? ObjectGenreController else { return }
+            let currentGenre = self.genreData.data[ indexPath.row ]
+            objectGenreVC.title = currentGenre.title
+        }
+    }
 }

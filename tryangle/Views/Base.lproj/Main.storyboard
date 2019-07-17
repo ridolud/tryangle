@@ -167,7 +167,7 @@
                                             <outlet property="backgroundObjectGenreView" destination="v0g-V2-dS2" id="jh4-bS-ycJ"/>
                                             <outlet property="objectGenreImageView" destination="aKs-el-rHW" id="0e1-oB-RKp"/>
                                             <outlet property="objectGenreLabel" destination="08U-Id-73T" id="lhq-pJ-Nu1"/>
-                                            <segue destination="hFt-UX-Qn2" kind="show" id="aZy-em-AzP"/>
+                                            <segue destination="hFt-UX-Qn2" kind="show" identifier="genreObjectARSegue" id="aZy-em-AzP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -187,6 +187,9 @@
                         <viewLayoutGuide key="safeArea" id="0sy-Gr-8C8"/>
                     </view>
                     <navigationItem key="navigationItem" id="9w9-0p-zWn"/>
+                    <connections>
+                        <outlet property="objectGenreCollection" destination="kGy-9L-cZg" id="J2F-gc-FDA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qW-od-cEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

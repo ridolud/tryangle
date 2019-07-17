@@ -57,6 +57,9 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
             guard let indexPath = genreCollectionView.indexPathsForSelectedItems?.first, let objectGenreVC = segue.destination as? ObjectGenreController else { return }
             let currentGenre = self.genreData.data[ indexPath.row ]
             objectGenreVC.title = currentGenre.title
+            let objectGenre = ObjectGenreModel()
+            objectGenreVC.objectGenreData = objectGenre.getByGenreName(name: currentGenre.name)
+            print(objectGenreVC.objectGenreData)
         }
     }
 }

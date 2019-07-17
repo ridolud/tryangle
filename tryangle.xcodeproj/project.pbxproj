@@ -21,6 +21,7 @@
 		7A73B91022D9C0E7002E2231 /* High.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A73B90D22D9C0E7002E2231 /* High.jpg */; };
 		7A73B91222D9DF15002E2231 /* TipsShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73B91122D9DF15002E2231 /* TipsShareController.swift */; };
 		7A73B91422D9FDC0002E2231 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73B91322D9FDC0002E2231 /* CustomButton.swift */; };
+		7F0F469522DEE15D0023D3F3 /* ObjectGenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F469422DEE15D0023D3F3 /* ObjectGenreModel.swift */; };
 		7F1CF8DF22CD0E480062DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */; };
 		7F1CF8E422CD0E480062DB61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CF8E222CD0E480062DB61 /* Main.storyboard */; };
 		7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8E522CD0E480062DB61 /* tryangle.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 		7A73B90D22D9C0E7002E2231 /* High.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = High.jpg; sourceTree = "<group>"; };
 		7A73B91122D9DF15002E2231 /* TipsShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsShareController.swift; sourceTree = "<group>"; };
 		7A73B91322D9FDC0002E2231 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7F0F469422DEE15D0023D3F3 /* ObjectGenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectGenreModel.swift; sourceTree = "<group>"; };
 		7F1CF8DB22CD0E480062DB61 /* tryangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tryangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F1CF8E322CD0E480062DB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				7FAC989922DDC454007F6957 /* GenreModel.swift */,
+				7F0F469422DEE15D0023D3F3 /* ObjectGenreModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				7F2E5B0522DB128000E5E8E7 /* VirtualPlane.swift in Sources */,
 				7F1CF8F922CD113C0062DB61 /* CameraController.swift in Sources */,
 				7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */,
+				7F0F469522DEE15D0023D3F3 /* ObjectGenreModel.swift in Sources */,
 				7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */,
 				7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */,
 				7F3ED3E622DCE4B90002138C /* ARSCNCameraView.swift in Sources */,

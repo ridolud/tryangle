@@ -10,24 +10,28 @@ import UIKit
 
 class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var listOfFood = ["apple", "applePie", "cupcake", "cupOfMilk", "foodInBowl", "pizza", "sandwich", "sushi"]
+//    var listOfFood = ["apple", "applePie", "cupcake", "cupOfMilk", "foodInBowl", "pizza", "sandwich", "sushi"]
+    @IBOutlet weak var objectGenreCollection: UICollectionView!
+    
+    var objectGenreData: [ObjectGenre] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // default titles navigation bar 
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listOfFood.count
+        return objectGenreData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for:  indexPath) as! ObjectGenreCell
         
-        cell.objectGenreLabel.text = listOfFood[indexPath.item]
-        cell.objectGenreImageView.image = UIImage(named: listOfFood[indexPath.item])
+        cell.objectGenreLabel.text = objectGenreData[indexPath.item].title
+        cell.objectGenreImageView.image = objectGenreData[indexPath.item].image
         cell.backgroundObjectGenreView.layer.cornerRadius = 20
         
         return cell
@@ -35,6 +39,14 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "genreObjectARSegue" {
+            guard let indexPath = objectGenreCollection.indexPathsForSelectedItems?.first, let ARCameraVC = segue.destination as? ARCameraController else { return }
+            let currentGenreObject = objectGenreData[ indexPath.row ]
+            ARCameraVC.title = currentGenreObject.title
+        }
     }
 
 }

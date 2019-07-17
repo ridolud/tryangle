@@ -8,6 +8,8 @@
 
 import UIKit
 
+let objectGenreModel = ObjectGenreModel()
+
 struct Genre {
     
     let name: String
@@ -18,28 +20,13 @@ struct Genre {
 
 class GenreModel {
     
-    var data: [ Genre ] = []
+    var data: [ Genre ] = [
+        Genre(name: "food", title: "Food Photography", image: UIImage(named: "genre-1")!),
+        Genre(name: "potrait", title: "Potrait Photography", image: UIImage(named: "genre-1")!),
+    ]
     
-    var name: String!
-    var title: String!
-    var image: UIImage!
-    
-    init() {
-        self.data = self.setDefault()
-    }
-    
-    func add(_ data: Genre) {
-        self.data.append(data)
-    }
-    
-    private func setDefault() -> [Genre] {
-    
-        var defaultData: [Genre] = []
-        defaultData.append(Genre(name: "food", title: "Food Photography", image: UIImage(named: "genre-1")!))
-        defaultData.append(Genre(name: "potrait", title: "Potrait Photography", image: UIImage(named: "genre-1")!))
-        
-        return defaultData
-    
+    func getByName(name: String) -> Genre? {
+        return data.first(where: { $0.name == name })
     }
     
 }

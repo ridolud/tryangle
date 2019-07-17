@@ -30,9 +30,6 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
         // Disable back button
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        
-        // Set Title
-        self.title = String("Food Photography").uppercased()
     }
  
     override func viewWillAppear(_ animated: Bool) {

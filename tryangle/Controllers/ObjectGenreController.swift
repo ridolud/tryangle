@@ -12,11 +12,20 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     
     var listOfFood = ["apple", "applePie", "cupcake", "cupOfMilk", "foodInBowl", "pizza", "sandwich", "sushi"]
 
+    var genreData: GenreModel = GenreModel()
+    let userDef = UserDefaults.standard
+    
+    var currentGenreStatus: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // default titles navigation bar 
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        currentGenreStatus = userDef.integer(forKey: "currentGenreStatus")
+//        print(currentGenreStatus)
+//        let currentGenre = self.genreData.data[currentGenreStatus]
+//        print(genreData.m)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

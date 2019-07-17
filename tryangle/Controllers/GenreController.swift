@@ -14,6 +14,8 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
     
     var genreData: GenreModel = GenreModel()
     
+    let userDef = UserDefaults.standard
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return genreData.data.count
@@ -58,6 +60,7 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
             guard let indexPath = genreCollectionView.indexPathsForSelectedItems?.first, let objectGenreVC = segue.destination as? ObjectGenreController else { return }
             let currentGenre = self.genreData.data[ indexPath.row ]
             objectGenreVC.title = currentGenre.title
+            userDef.set(indexPath.row, forKey: "currentGenreStatus")
         }
     }
 }

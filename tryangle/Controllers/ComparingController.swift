@@ -13,7 +13,7 @@ class ComparingController: UIViewController {
     @IBOutlet var imageButtons: [UIButton]!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
-    
+    @IBOutlet weak var onboardingView: UIView!
     
     var sendImage: UIImage?
     var sendTitle: String?
@@ -22,11 +22,17 @@ class ComparingController: UIViewController {
 //    var imageButtonNames = ["High2.jpg", "Eye2.jpg", "Low2.jpg"]
     var imageButtonNames = ["High.jpg", "Eye2.jpg", "Low2.jpg"]
     
+    let userDef = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //check for onboarding
+        if userDef.bool(forKey: "onboardingComparing") {
+            removeOnboarding()
+        }
         
         //change button contentMode to aspect fill
         for button in imageButtons {
@@ -34,8 +40,15 @@ class ComparingController: UIViewController {
             button.imageView?.contentMode = .scaleAspectFill
             button.addTarget(self, action: #selector(multipleTap(_:event:)), for: .touchDownRepeat)
         }
-        
-        
+    }
+    
+    func removeOnboarding() {
+        onboardingView.removeFromSuperview()
+        userDef.set(true, forKey: "onboardingComparing")
+    }
+    
+    @IBAction func onboardingViewDidTap(_ sender: Any) {
+        removeOnboarding()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,17 +71,11 @@ class ComparingController: UIViewController {
     var imageButtonFrameOrigin: CGRect?
     
     func animateImageButton(imageButton: UIButton) {
-//        self.imageButton = imageButton
-        
         if let imageButtonFrame = imageButton.superview?.convert(imageButton.frame, to: nil) {
-//            print(imageButtonFrame)
             self.imageButton = imageButton
             self.imageButtonFrameOrigin = imageButtonFrame
             zoomImageButton.frame = imageButtonFrame
         }
-//        let imageButtonFrame = imageButton.convert(imageButton.frame, from: self.view)
-//        let startingFrame = CGRect(x: -imageButtonFrame.minX, y: -imageButtonFrame.minY, width: imageButtonFrame.width, height: imageButtonFrame.height)
-//        print(imageButtonFrame)
         
         imageButton.alpha = 1
         
@@ -90,30 +97,17 @@ class ComparingController: UIViewController {
         blackBackgroundView.addGestureRecognizer(tapGestureRecognizer2)
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
-            
-//            let height = (self.view.frame.width / startingFrame.width) * startingFrame.height
             let height = self.view.frame.height
             let y = self.view.frame.height / 2 - height / 2
             
             self.zoomImageButton.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
             self.zoomImageButton.alpha = 1
             self.blackBackgroundView.alpha = 1
-            
-//            self.navigationController?.isNavigationBarHidden = true
-        }) { (didComplete) in
-//            self.navigationController?.isNavigationBarHidden = true
-        }
+        })
     }
     
     @objc func zoomOut() {
-//        guard let imageButtonFrame = self.imageButton?.convert(self.imageButton!.frame, to: nil) else { return }
-//        print(self.imageButton?.frame)
-//        guard let imageButtonFrame = self.imageButton?.convert(self.imageButton!.frame, to: nil) else { return }
-//        print(imageButtonFrame)
         guard let startingFrame = imageButtonFrameOrigin else { return }
-//            CGRect(x: -imageButtonFrame.minX, y: -imageButtonFrame.minY, width: imageButtonFrame.width, height: imageButtonFrame.height)
-        
-//        self.navigationController?.isNavigationBarHidden = false
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
             
             self.zoomImageButton.frame = startingFrame
@@ -149,7 +143,6 @@ class ComparingController: UIViewController {
     @IBAction func nextDidTap(_ sender: Any) {
         if sendImage != nil {
             performSegue(withIdentifier: "TipsShare", sender: nil)
-//            performSegue(withIdentifier: "Preview", sender: nil)
         }
     }
     
@@ -158,14 +151,5 @@ class ComparingController: UIViewController {
             let tipsShareVC = segue.destination as! TipsShareController
             tipsShareVC.receivedImage = sendImage
         }
-        
-        if segue.identifier == "Preview" {
-            let previewVC = segue.destination as! PreviewController
-            previewVC.receivedImage = sendImage
-            previewVC.receivedTitle = sendTitle
-        }
-        
     }
-    
-    
 }

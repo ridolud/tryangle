@@ -74,6 +74,11 @@ class GenreModel {
     
     private var genreImage: [String] = [ "genre-1", "genre-1" ]
     
+    private var listOfObjectImageName = [
+        ["apple", "applePie", "cupcake", "cupOfMilk", "foodInBowl", "pizza", "sandwich", "sushi"],
+        ["Male", "Female"]
+    ]
+    
     func setDefaultData() {
         self.fetch()
         

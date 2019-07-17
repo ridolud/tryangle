@@ -22,14 +22,13 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as! GenreCell
 
-        let genre = self.genreData.data[indexPath.row] as Genre
-            cell.imageView.image = UIImage(named: genre.image!)
-            cell.textView.text = genre.title!
+        let genre = self.genreData.data[indexPath.row]
+            cell.imageView.image = genre.image
+            cell.textView.text = genre.title
         
         return cell
     }
     
-
     fileprivate func setUpCollectionView() {
         let layout = UICollectionViewFlowLayout()
         

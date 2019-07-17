@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Genre" representedClassName=".Genre" syncable="YES" codeGenerationType="class">
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ObjectGenre" inverseName="genre" inverseEntity="ObjectGenre" syncable="YES"/>
-    </entity>
-    <entity name="ObjectGenre" representedClassName=".ObjectGenre" syncable="YES" codeGenerationType="class">
-        <attribute name="image" optional="YES" attributeType="URI" syncable="YES"/>
-        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="genre" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Genre" inverseName="objects" inverseEntity="Genre" syncable="YES"/>
-    </entity>
-    <elements>
-        <element name="Genre" positionX="120.49609375" positionY="-12.6796875" width="128" height="105"/>
-        <element name="ObjectGenre" positionX="-54" positionY="-9" width="128" height="120"/>
-    </elements>
+    <elements/>
 </model>

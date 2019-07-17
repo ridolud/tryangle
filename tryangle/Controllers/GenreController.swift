@@ -14,6 +14,8 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
     
     var genreData: GenreModel = GenreModel()
     
+    let userDef = UserDefaults.standard
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return genreData.data.count
@@ -60,6 +62,5 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
             let objectGenre = ObjectGenreModel()
             objectGenreVC.objectGenreData = objectGenre.getByGenreName(name: currentGenre.name)
             print(objectGenreVC.objectGenreData)
-        }
     }
 }

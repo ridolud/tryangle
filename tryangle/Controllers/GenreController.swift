@@ -62,5 +62,6 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
             let objectGenre = ObjectGenreModel()
             objectGenreVC.objectGenreData = objectGenre.getByGenreName(name: currentGenre.name)
             print(objectGenreVC.objectGenreData)
+        }
     }
 }

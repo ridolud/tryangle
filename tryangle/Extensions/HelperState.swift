@@ -45,3 +45,13 @@ enum AngleStepStatus: String {
         finished                = "finished"
     
 }
+
+
+// TODO: Buat class/struc untuk menghendle configurasi AR di setiap step
+//struct AngleStepStatusHendle {
+//
+//    let status: AngleStepStatus
+//
+//    let title: String
+//
+//}

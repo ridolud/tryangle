@@ -74,6 +74,7 @@ class ARSCNCameraView: ARSCNView {
         self.config.planeDetection = .horizontal
         self.autoenablesDefaultLighting = true
         self.automaticallyUpdatesLighting = true
+        self.debugOptions = [ .showWorldOrigin ]
         self.session.run( self.config )
     }
     
@@ -116,8 +117,13 @@ class ARSCNCameraView: ARSCNView {
     
     // Remove all node from scene view.
     func cleanUpSceneView() {
-        self.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
+        if self.currentPlaneObjectState == .added {
+            
+            self.scene.rootNode.enumerateChildNodes { (node, stop) -> Void in
             node.removeFromParentNode()
+            }
+            
+            self.currentPlaneObjectState = .initialized
         }
     }
 

@@ -9,7 +9,7 @@
 import UIKit
 import ARKit
 
-class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDataSource {
+class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDataSource, ARSessionDelegate {
     
     // ============================
     // MARK: Initialized
@@ -20,23 +20,26 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     
     // Object scene added
     var sceneObjectActive: SCNNode!
+    
+    // Current angle state
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         sceneView.delegate = self
         sceneView.ARSCNCameraViewDataSource = self
+        sceneView.session.delegate = self
         
         // Disable back button
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
- 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
             self.sceneView.arSessionStart()
-            
             let objectScene = SCNScene(named: "ObjectMedia.scnassets/sushiroll.scn")!
             self.sceneView.init3dObject(scene: objectScene, name: "sushiroll")
         }
@@ -51,6 +54,7 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     // Trigger action.
     @IBAction func takePicture(_ sender: UIButton) {
         if self.sceneView.currentPlaneObjectState == .ready {
+//            let nodeActive = self.sceneView.sceneObject.clone()
             sceneObjectActive = self.sceneView.sceneObject.clone()
             sceneObjectActive.opacity = 1
             self.sceneView.sceneObject.opacity = 0
@@ -61,10 +65,7 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     
     // Reset action.
     @IBAction func ressetObject(_ sender: UIButton) {
-        if self.sceneView.currentPlaneObjectState == .added {
-            sceneObjectActive.removeFromParentNode()
-            self.sceneView.currentPlaneObjectState = .initialized
-        }
+        sceneView.cleanUpSceneView()
     }
     
     
@@ -99,12 +100,12 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     
     // Change plane object selected.
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        if self.sceneView.currentPlaneObjectState == .added { return }
         DispatchQueue.main.async {
+            if self.sceneView.currentPlaneObjectState == .added { return }
             let center = self.sceneView.center
 
             // Debuging
-            print(self.sceneView.currentPlaneObjectState)
+            // print(self.sceneView.currentPlaneObjectState)
 
             if let plane = self.sceneView.virtualPlaneProperlySet(for: center) {
                 self.sceneView.selectedPlane = plane
@@ -128,6 +129,14 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     func currentPlaneObjectState(didUpdate state: PlaneObjectSessiontState) {
         self.statusLabel.text = state.description
     }
+    
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        if sceneView.currentPlaneObjectState == .added {
+            //sceneView.rangeObjectFromCamera(sceneView: sceneView, sceneObjectActive: sceneObjectActive)
+        }
+    }
+    
 }
 
 

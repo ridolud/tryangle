@@ -19,7 +19,7 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     @IBOutlet weak var centerTriggerButton: UIButton!
     
     // Images capture
-    var captureImages: [ [Angle:UIImage] ] = [] {
+    var captureImages: [UIImage] = [] {
         didSet {
             print(self.captureImages)
         }
@@ -87,21 +87,22 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
             self.sceneView.sceneObject.opacity = 0
             self.sceneView.currentPlaneObjectState = .added
             sceneView.scene.rootNode.addChildNode(sceneObjectActive)
-            self.currentAngleState = .lowAngle
+            self.currentAngleState = .highAngle
         }else{
             
             switch self.currentAngleState {
-            case .lowAngle:
-                self.captureImages.append([ Angle.low : self.sceneView.snapshot() ])
+            case .highAngle:
+                self.captureImages.append(self.sceneView.snapshot())
                 self.currentAngleState = .eyeAngle
             case .eyeAngle:
-                self.captureImages.append([ Angle.eye : self.sceneView.snapshot() ])
-                self.currentAngleState = .highAngle
-            case .highAngle:
-                self.captureImages.append([ Angle.high : self.sceneView.snapshot() ])
+                self.captureImages.append(self.sceneView.snapshot())
+                self.currentAngleState = .lowAngle
+            case .lowAngle:
+                self.captureImages.append(self.sceneView.snapshot())
                 self.currentAngleState = .finished
             case .finished:
                 print("Yap Finish")
+                performSegue(withIdentifier: "arToComparing", sender: nil)
             default:
                 return
             }
@@ -192,6 +193,14 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if sceneView.currentPlaneObjectState == .added {
             //sceneView.rangeObjectFromCamera(sceneView: sceneView, sceneObjectActive: sceneObjectActive)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "arToComparing" {
+            if let comparingVC = segue.destination as? ComparingController {
+                comparingVC.receivedImage = self.captureImages
+            }
         }
     }
     

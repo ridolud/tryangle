@@ -49,6 +49,7 @@ class ObjectGenreModel {
         ObjectGenre(name: "cupcake", genre: "food", title: "Cup Cake", image: "cupcake", object: "susshiroll.scn", tips: "Cupcake is a subjects with detail on the top, it work better with the top down angle to capture top detail"),
         ObjectGenre(name: "applePie", genre: "food", title: "Apple Pie", image: "applePie", object: "susshiroll.scn", tips: "Pie have many detail on the top so the top down angle can show the detail on the pie surface"),
         
+        
         ObjectGenre(name: "Dance Woman", genre: "potrait", title: "Dancer", image: "Dance Woman", object: "susshiroll.scn", tips: ""),
         ObjectGenre(name: "Baby", genre: "potrait", title: "Baby", image: "Baby", object: "susshiroll.scn", tips: ""),
         ObjectGenre(name: "Pilgrm Man", genre: "potrait", title: "Pilgirm Men", image: "Pilgrm Man", object: "susshiroll.scn", tips: ""),

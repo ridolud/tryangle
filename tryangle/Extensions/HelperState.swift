@@ -38,7 +38,7 @@ enum AngleStepStatus: String {
     
     case
         initialized             = "initialized",
-        addingObject            = "adding object",
+        addedObject             = "added object",
         lowAngle                = "low angel",
         eyeAngle                = "eye angle",
         highAngle               = "high angle",

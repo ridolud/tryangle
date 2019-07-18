@@ -19,12 +19,11 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
     @IBOutlet weak var centerTriggerButton: UIButton!
     
     // Images capture
-    var captureImages: [UIImage] = [] {
+    var captureImages: [ [Angle:UIImage] ] = [] {
         didSet {
             print(self.captureImages)
         }
     }
-    
     
     // Object scene added
     var sceneObjectActive: SCNNode!
@@ -93,13 +92,13 @@ class ARCameraController: UIViewController, ARSCNViewDelegate, ARSCNCameraViewDa
             
             switch self.currentAngleState {
             case .lowAngle:
-                self.captureImages.append( UIImage(named: "genre-1")! )
+                self.captureImages.append([ Angle.low : self.sceneView.snapshot() ])
                 self.currentAngleState = .eyeAngle
             case .eyeAngle:
-                self.captureImages.append( UIImage(named: "genre-1")! )
+                self.captureImages.append([ Angle.eye : self.sceneView.snapshot() ])
                 self.currentAngleState = .highAngle
             case .highAngle:
-                self.captureImages.append( UIImage(named: "genre-1")! )
+                self.captureImages.append([ Angle.high : self.sceneView.snapshot() ])
                 self.currentAngleState = .finished
             case .finished:
                 print("Yap Finish")

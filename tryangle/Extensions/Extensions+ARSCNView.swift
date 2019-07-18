@@ -24,5 +24,18 @@ extension ARSCNView {
     // Is't in save area to take photo ?
     
     // Is't in same angle position ?
+    
+    func captureImageAndKeep(angle: Angle ) -> Bool {
+        let image = self.snapshot()
+//        if let data = image.jpegData(compressionQuality: 0) {
+//
+//            let fileManager = FileManager.default
+//            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Temp Photo/\(angle.description).jpg")
+//            print(fileManager.contents(atPath: paths))
+//            fileManager.createFile(atPath: paths as String, contents: data, attributes: nil)
+//            print(fileManager.contents(atPath: paths))
+//        }
+        return false
+    }
 
 }

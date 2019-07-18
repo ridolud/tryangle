@@ -46,6 +46,21 @@ enum AngleStepStatus: String {
     
 }
 
+enum Angle: String, CustomStringConvertible {
+    case low = "low", eye = "eye", high = "high"
+    
+    var description: String {
+        switch self {
+        case .eye:
+            return "Eye"
+        case .high:
+            return "High"
+        case .low:
+            return "Low"
+        }
+    }
+}
+
 
 // TODO: Buat class/struc untuk menghendle configurasi AR di setiap step
 //struct AngleStepStatusHendle {

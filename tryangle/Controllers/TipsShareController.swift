@@ -12,13 +12,24 @@ import Photos
 class TipsShareController: UIViewController {
 
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var tipsLabel: UILabel!
     
     var receivedImage: UIImage?
+    
+    var objectGenreModel = ObjectGenreModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let currentGenreObject = objectGenreModel.data[2]
+        let currentGenreTips = currentGenreObject.tips
+        
+        tipsLabel.text = currentGenreTips
+        
+        
+        
         if let imageFromPrev = receivedImage {
             image.image = imageFromPrev
             let startingFrame = CGRect(x: 0, y: 0, width: imageFromPrev.size.width, height: imageFromPrev.size.height)
@@ -26,7 +37,7 @@ class TipsShareController: UIViewController {
             let height = (self.view.frame.width / imageFromPrev.size.width) * imageFromPrev.size.height
             image.frame = CGRect(x: startingFrame.minX, y: startingFrame.minY, width: self.view.frame.width, height: height)
             print(image.frame)
-            image.backgroundColor = .blue
+//            image.backgroundColor = .blue
         }
     }
     
@@ -92,5 +103,26 @@ class TipsShareController: UIViewController {
         }
     }
     
+//    @IBAction func unwindToGenreObject(_ sender: UIStoryboardSegue) {
+////        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+//    }
+    
+    @IBAction func nextButtonDidTap(_ sender: Any) {
+//        performSegue(withIdentifier: "genreObjectSegueBack", sender: self)
+        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        if segue.identifier == "genreObjectSegueBack" {
+////            guard let indexPath = genreCollectionView.indexPathsForSelectedItems?.first, let objectGenreVC = segue.destination as? ObjectGenreController else { return }
+//            let objectGenreVC = segue.destination as! ObjectGenreController
+//            let genreModel = GenreModel()
+//            let currentGenre = genreModel.data[ 0 ]
+//            objectGenreVC.title = currentGenre.title
+//            let objectGenre = ObjectGenreModel()
+//            objectGenreVC.objectGenreData = objectGenre.getByGenreName(name: currentGenre.name)
+//            print(objectGenreVC.objectGenreData)
+//        }
+    }
     
 }

@@ -10,26 +10,20 @@ import UIKit
 
 class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-//    var listOfFood = ["apple", "applePie", "cupcake", "cupOfMilk", "foodInBowl", "pizza", "sandwich", "sushi"]
     @IBOutlet weak var objectGenreCollection: UICollectionView!
     
     var objectGenreData: [ObjectGenre] = []
 
     var genreData: GenreModel = GenreModel()
-    let userDef = UserDefaults.standard
     
     var currentGenreStatus: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         // default titles navigation bar 
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        currentGenreStatus = userDef.integer(forKey: "currentGenreStatus")
-//        print(currentGenreStatus)
-//        let currentGenre = self.genreData.data[currentGenreStatus]
-//        print(genreData.m)
+//        currentGenreStatus = userDef.integer(forKey: "currentGenreStatus")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,9 +47,12 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "genreObjectARSegue" {
             guard let indexPath = objectGenreCollection.indexPathsForSelectedItems?.first, let ARCameraVC = segue.destination as? ARCameraController else { return }
-            let currentGenreObject = objectGenreData[ indexPath.row ]
+            let currentGenreObject = objectGenreData[indexPath.row]
             ARCameraVC.title = currentGenreObject.title
         }
     }
 
+    @IBAction func unwindToVC1
+        (unwindSegue:UIStoryboardSegue) { }
+    
 }

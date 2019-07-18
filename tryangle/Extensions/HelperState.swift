@@ -38,10 +38,20 @@ enum AngleStepStatus: String {
     
     case
         initialized             = "initialized",
-        addingObject            = "adding object",
+        addedObject             = "added object",
         lowAngle                = "low angel",
         eyeAngle                = "eye angle",
         highAngle               = "high angle",
         finished                = "finished"
     
 }
+
+
+// TODO: Buat class/struc untuk menghendle configurasi AR di setiap step
+//struct AngleStepStatusHendle {
+//
+//    let status: AngleStepStatus
+//
+//    let title: String
+//
+//}

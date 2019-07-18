@@ -425,7 +425,7 @@
                         <viewLayoutGuide key="safeArea" id="Qeh-O2-9df"/>
                     </view>
                     <navigationItem key="navigationItem" title="Try Angle" largeTitleDisplayMode="never" id="JGa-ky-kDx">
-                        <barButtonItem key="backBarButtonItem" title=" " id="EaO-D8-uyp"/>
+                        <barButtonItem key="backBarButtonItem" title="  " id="EaO-D8-uyp"/>
                     </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="0Ub-Ry-JBX" id="pub-mL-L1K"/>
@@ -445,7 +445,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1934.7826086956522" y="1856.9196428571427"/>
+            <point key="canvasLocation" x="2958" y="1857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TlX-4K-Skc">
@@ -548,12 +548,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6g-CQ-rLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ldQ-NH-hB7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2860.8695652173915" y="1856.9196428571427"/>
+            <point key="canvasLocation" x="3884" y="1857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IDB-fG-e0l">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-uf-rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvo-wT-dHY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -569,10 +568,8 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9ug-QL-xPk" kind="relationship" relationship="rootViewController" id="7fS-bI-K40"/>
-                    </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-uf-rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.6376811594205" y="1856.9196428571427"/>
         </scene>
@@ -584,8 +581,5 @@
         <image name="TapSymbol" width="29" height="38"/>
         <image name="add-3dobject-btn" width="80" height="80"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="QIG-lD-HhN"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -18,6 +18,8 @@ class ComparingController: UIViewController {
     
     var sendImage: UIImage?
     var sendTitle: String?
+    var receivedImage: [UIImage]?
+    
     var titleNames = ["High", "Eye", "Low"]
 //    var imageButtonNames = ["High.jpg", "Eye.jpg", "Low.jpg"]
 //    var imageButtonNames = ["High2.jpg", "Eye2.jpg", "Low2.jpg"]
@@ -31,6 +33,12 @@ class ComparingController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationController?.navigationItem.hidesBackButton =  true
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        
+        
         // Demo Data
         let currentGenreObject = objectGenreModel.data[2]
         let currentGenre = currentGenreObject.title
@@ -45,7 +53,9 @@ class ComparingController: UIViewController {
         
         //change button contentMode to aspect fill
         for button in imageButtons {
-            button.setImage(UIImage(named: imageButtonNames[button.tag]), for: .normal)
+            let image = receivedImage![button.tag]
+//            button.setImage(UIImage(named: imageButtonNames[button.tag]), for: .normal)
+            button.setImage(image, for: .normal)
             button.imageView?.contentMode = .scaleAspectFill
             button.addTarget(self, action: #selector(multipleTap(_:event:)), for: .touchDownRepeat)
         }

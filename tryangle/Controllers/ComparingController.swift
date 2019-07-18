@@ -10,6 +10,7 @@ import UIKit
 
 class ComparingController: UIViewController {
 
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet var imageButtons: [UIButton]!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
@@ -22,17 +23,25 @@ class ComparingController: UIViewController {
 //    var imageButtonNames = ["High2.jpg", "Eye2.jpg", "Low2.jpg"]
     var imageButtonNames = ["High.jpg", "Eye2.jpg", "Low2.jpg"]
     
+//    var objectGenreData: [ObjectGenre] = []
+    var objectGenreModel = ObjectGenreModel()
     let userDef = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Demo Data
+        let currentGenreObject = objectGenreModel.data[2]
+        let currentGenre = currentGenreObject.title
+        
+        questionLabel.text = "Which one is the best for \(currentGenre)?"
         
         //check for onboarding
         if userDef.bool(forKey: "onboardingComparing") {
             removeOnboarding()
         }
+        
         
         //change button contentMode to aspect fill
         for button in imageButtons {

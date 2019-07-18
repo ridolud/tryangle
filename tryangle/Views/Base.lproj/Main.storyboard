@@ -264,6 +264,14 @@
                                             <action selector="ressetObject:" destination="hFt-UX-Qn2" eventType="touchUpInside" id="Qo2-bJ-CUD"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbp-kn-2e6">
+                                        <rect key="frame" x="278" y="138" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="9ug-QL-xPk" kind="show" id="QIG-lD-HhN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -416,12 +424,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qeh-O2-9df"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Try Angle" id="JGa-ky-kDx">
+                    <navigationItem key="navigationItem" title="Try Angle" largeTitleDisplayMode="never" id="JGa-ky-kDx">
                         <barButtonItem key="backBarButtonItem" title=" " id="EaO-D8-uyp"/>
                     </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="0Ub-Ry-JBX" id="pub-mL-L1K"/>
                         <outlet property="onboardingView" destination="SNR-Oi-0PM" id="FSp-YL-2Rd"/>
+                        <outlet property="questionLabel" destination="T2v-3E-EAh" id="tpf-Wp-Kbj"/>
                         <outlet property="stackView" destination="174-dE-qyn" id="CZN-ZC-YSI"/>
                         <outletCollection property="imageButtons" destination="L19-Ud-E2X" collectionClass="NSMutableArray" id="bxW-aF-pI5"/>
                         <outletCollection property="imageButtons" destination="cNE-i9-uhE" collectionClass="NSMutableArray" id="4Lh-aQ-Wod"/>
@@ -470,10 +479,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-bD-SWZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="577"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="574"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bba-2b-IHZ">
-                                        <rect key="frame" x="20" y="40" width="374" height="497"/>
+                                        <rect key="frame" x="20" y="40" width="374" height="494"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -494,9 +503,13 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonDidTap:" destination="uyP-YX-Jsu" eventType="touchUpInside" id="GZo-ol-6Ms"/>
+                                    <segue destination="ldQ-NH-hB7" kind="unwind" identifier="unwindSegueToVC1" unwindAction="unwindToVC1WithSegue:" id="CLk-3w-spP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" Pizza are usually take on High Angle shot because it will show the entire pizza topping at the surface" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avr-oG-5up">
-                                <rect key="frame" x="20" y="705" width="374" height="60"/>
+                                <rect key="frame" x="20" y="697" width="374" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="UeM-50-dV9"/>
                                 </constraints>
@@ -511,8 +524,8 @@
                             <constraint firstAttribute="trailing" secondItem="avr-oG-5up" secondAttribute="trailing" constant="20" id="ARV-SB-PuC"/>
                             <constraint firstItem="DwZ-bD-SWZ" firstAttribute="top" secondItem="pb4-Do-0j3" secondAttribute="top" id="CaK-a9-eBS"/>
                             <constraint firstItem="qJM-K5-ng3" firstAttribute="centerX" secondItem="cwH-Nm-fax" secondAttribute="centerX" id="DzV-Pf-2og"/>
-                            <constraint firstItem="qJM-K5-ng3" firstAttribute="top" secondItem="avr-oG-5up" secondAttribute="bottom" constant="27" id="Exu-ai-Ivn"/>
-                            <constraint firstItem="avr-oG-5up" firstAttribute="top" secondItem="DwZ-bD-SWZ" secondAttribute="bottom" constant="40" id="ReB-aT-id9"/>
+                            <constraint firstItem="qJM-K5-ng3" firstAttribute="top" secondItem="avr-oG-5up" secondAttribute="bottom" constant="35" id="Exu-ai-Ivn"/>
+                            <constraint firstItem="avr-oG-5up" firstAttribute="top" secondItem="DwZ-bD-SWZ" secondAttribute="bottom" constant="35" id="ReB-aT-id9"/>
                             <constraint firstItem="avr-oG-5up" firstAttribute="leading" secondItem="cwH-Nm-fax" secondAttribute="leading" constant="20" id="ULv-z7-fmW"/>
                             <constraint firstItem="DwZ-bD-SWZ" firstAttribute="leading" secondItem="pb4-Do-0j3" secondAttribute="leading" id="a0a-CX-BNk"/>
                             <constraint firstItem="pb4-Do-0j3" firstAttribute="trailing" secondItem="DwZ-bD-SWZ" secondAttribute="trailing" id="neJ-Vt-CPI"/>
@@ -529,15 +542,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="image" destination="bba-2b-IHZ" id="r81-jN-eBS"/>
+                        <outlet property="tipsLabel" destination="avr-oG-5up" id="WYu-kp-irF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6g-CQ-rLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ldQ-NH-hB7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2860.8695652173915" y="1856.9196428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IDB-fG-e0l">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-uf-rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvo-wT-dHY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -557,7 +573,6 @@
                         <segue destination="9ug-QL-xPk" kind="relationship" relationship="rootViewController" id="7fS-bI-K40"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-uf-rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.6376811594205" y="1856.9196428571427"/>
         </scene>
@@ -569,5 +584,8 @@
         <image name="TapSymbol" width="29" height="38"/>
         <image name="add-3dobject-btn" width="80" height="80"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="QIG-lD-HhN"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

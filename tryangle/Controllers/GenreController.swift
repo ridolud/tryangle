@@ -55,6 +55,7 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -68,4 +69,7 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
             print(objectGenreVC.objectGenreData)
         }
     }
+    
+    @IBAction func unwindToVC1
+        (unwindSegue:UIStoryboardSegue) { }
 }

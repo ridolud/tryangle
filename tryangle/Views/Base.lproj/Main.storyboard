@@ -306,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM7-8p-wWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2957.971014492754" y="916.74107142857133"/>
+            <point key="canvasLocation" x="2978" y="917"/>
         </scene>
         <!--Comparing Screen-->
         <scene sceneID="wel-kV-gPM">

@@ -52,7 +52,5 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
 
-    @IBAction func unwindToVC1
-        (unwindSegue:UIStoryboardSegue) { }
     
 }

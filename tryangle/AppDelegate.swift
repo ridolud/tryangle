@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var restrictRotation:UIInterfaceOrientationMask = .all
+    var restrictRotation:UIInterfaceOrientationMask = .allButUpsideDown
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

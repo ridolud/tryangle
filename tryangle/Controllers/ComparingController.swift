@@ -100,18 +100,21 @@ class ComparingController: UIViewController {
         imageButton.alpha = 1
         
 //        blackBackgroundView.frame = self.view.frame
-        blackBackgroundView.frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY - 44, width: self.view.frame.width, height: self.view.frame.height - 44)
+        blackBackgroundView.frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY + 88, width: self.view.frame.width, height: self.view.frame.height - 88)
 //            CGRect(height: self.view.frame.height - 44)
+//        print(blackBackgroundView.frame)
         blackBackgroundView.backgroundColor = .black
         blackBackgroundView.alpha = 0
         view.addSubview(blackBackgroundView)
-//        let guide = view.safeAreaLayoutGuide
-//        NSLayoutConstraint.activate([
-//            blackBackgroundView.topAnchor.constraint(equalTo: guide.topAnchor),
-//            blackBackgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-//            blackBackgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-//            blackBackgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-//            ])
+//        let safeView = view.safeAreaInsets
+        blackBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        let guide = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            blackBackgroundView.topAnchor.constraint(equalTo: guide.topAnchor),
+            blackBackgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            blackBackgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            blackBackgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            ])
 
         
         zoomImageButton.isUserInteractionEnabled = true
@@ -131,7 +134,7 @@ class ComparingController: UIViewController {
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
             let height = self.blackBackgroundView.frame.height
-            let y = self.view.frame.height / 2 - height / 2
+            let y = self.blackBackgroundView.frame.height / 2 - height / 2
             
             self.zoomImageButton.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
             self.zoomImageButton.alpha = 1

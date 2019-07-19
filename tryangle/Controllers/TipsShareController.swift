@@ -106,7 +106,7 @@ class TipsShareController: UIViewController {
 //        performSegue(withIdentifier: "genreObjectSegueBack", sender: self)
 //        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
-        print(viewControllers.count)
+//        print(viewControllers.count)
 //        if let navController = self.navigationController {
 //            navController.popViewController(animated: false)
 //            navController.popViewController(animated: false)

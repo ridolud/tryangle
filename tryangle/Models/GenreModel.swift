@@ -21,8 +21,8 @@ struct Genre {
 class GenreModel {
     
     var data: [ Genre ] = [
-        Genre(name: "food", title: "Food Photography", image: UIImage(named: "Food Genre")!),
-        Genre(name: "potrait", title: "Potrait Photography", image: UIImage(named: "Portrait Genre")!),
+        Genre(name: "food", title: "Food", image: UIImage(named: "Food Genre")!),
+        Genre(name: "potrait", title: "Potrait", image: UIImage(named: "Portrait Genre")!),
     ]
     
     func getByName(name: String) -> Genre? {

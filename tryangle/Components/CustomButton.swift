@@ -13,7 +13,9 @@ class CustomButton: UIButton {
     override func awakeFromNib() {
 //        layer.borderWidth = 1
 //        layer.borderColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+//        layer.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         layer.cornerRadius = 8
+//        titleLabel?.textColor = .black
     }
 
 }

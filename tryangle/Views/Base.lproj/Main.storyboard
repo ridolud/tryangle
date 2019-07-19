@@ -428,12 +428,13 @@
                             </stackView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ub-Ry-JBX" customClass="CustomButton" customModule="tryangle" customModuleProvider="target">
                                 <rect key="frame" x="117" y="792" width="180" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="HLZ-FW-EqJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="nextDidTap:" destination="9ug-QL-xPk" eventType="touchUpInside" id="Xwb-3X-Hck"/>
@@ -557,15 +558,17 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJM-K5-ng3" customClass="CustomButton" customModule="tryangle" customModuleProvider="target">
                                 <rect key="frame" x="117" y="792" width="180" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Ycb-Lv-jcb"/>
                                     <constraint firstAttribute="width" constant="180" id="jsO-94-c2x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="doneButtonDidTap:" destination="uyP-YX-Jsu" eventType="touchUpInside" id="FUb-4t-utd"/>
                                     <action selector="nextButtonDidTap:" destination="uyP-YX-Jsu" eventType="touchUpInside" id="GZo-ol-6Ms"/>
                                     <segue destination="ldQ-NH-hB7" kind="unwind" identifier="unwindSegueToVC1" unwindAction="unwindToVC1WithSegue:" id="CLk-3w-spP"/>
                                 </connections>

@@ -53,8 +53,9 @@ class ComparingController: UIViewController {
         
         //change button contentMode to aspect fill
         for button in imageButtons {
-            let image = receivedImage![button.tag]
 //            button.setImage(UIImage(named: imageButtonNames[button.tag]), for: .normal)
+            
+            let image = receivedImage![button.tag]
             button.setImage(image, for: .normal)
             button.imageView?.contentMode = .scaleAspectFill
             button.addTarget(self, action: #selector(multipleTap(_:event:)), for: .touchDownRepeat)
@@ -98,15 +99,28 @@ class ComparingController: UIViewController {
         
         imageButton.alpha = 1
         
-        blackBackgroundView.frame = self.view.frame
+//        blackBackgroundView.frame = self.view.frame
+        blackBackgroundView.frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY - 44, width: self.view.frame.width, height: self.view.frame.height - 44)
+//            CGRect(height: self.view.frame.height - 44)
         blackBackgroundView.backgroundColor = .black
         blackBackgroundView.alpha = 0
         view.addSubview(blackBackgroundView)
+//        let guide = view.safeAreaLayoutGuide
+//        NSLayoutConstraint.activate([
+//            blackBackgroundView.topAnchor.constraint(equalTo: guide.topAnchor),
+//            blackBackgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            blackBackgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+//            blackBackgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+//            ])
+
         
         zoomImageButton.isUserInteractionEnabled = true
         zoomImageButton.image = imageButton.image(for: .normal)
         zoomImageButton.contentMode = .scaleAspectFit
-        view.addSubview(zoomImageButton)
+        blackBackgroundView.addSubview(zoomImageButton)
+        
+        let rightButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(zoomOut))
+        self.navigationItem.rightBarButtonItem = rightButtonItem
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(zoomOut))
         tapGestureRecognizer.numberOfTapsRequired = 1
@@ -116,7 +130,7 @@ class ComparingController: UIViewController {
         blackBackgroundView.addGestureRecognizer(tapGestureRecognizer2)
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
-            let height = self.view.frame.height
+            let height = self.blackBackgroundView.frame.height
             let y = self.view.frame.height / 2 - height / 2
             
             self.zoomImageButton.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
@@ -125,7 +139,9 @@ class ComparingController: UIViewController {
         })
     }
     
+    
     @objc func zoomOut() {
+        self.navigationItem.setRightBarButton(nil, animated: false)
         guard let startingFrame = imageButtonFrameOrigin else { return }
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
             
@@ -155,8 +171,6 @@ class ComparingController: UIViewController {
                 nextButton.isEnabled = true
             }
         }
-        
-
     }
     
     @IBAction func nextDidTap(_ sender: Any) {

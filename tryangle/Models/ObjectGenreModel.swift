@@ -52,8 +52,8 @@ class ObjectGenreModel {
         
         ObjectGenre(name: "Dance Woman", genre: "potrait", title: "Dancer", image: "Dance Woman", object: "Dancer.scn", tips: "Eye level shot is good for a performer because it will show the body proportional"),
         ObjectGenre(name: "Baby", genre: "potrait", title: "Baby", image: "Baby", object: "susshiroll.scn", tips: "This is a common rule in baby photography, the best angle is always when you go and level yourself with the baby"),
-        ObjectGenre(name: "Pilgrm Man", genre: "potrait", title: "Pilgirm Men", image: "Pilgrm Man", object: "Indiana Man.scn", tips: "Eye level shot will make the pilgrim man looks proportional"),
-        ObjectGenre(name: "Pilgrm Woman", genre: "potrait", title: "Pilgirm Women", image: "Pilgrm Woman", object: "Pilgrim Woman.scn", tips: "Eye level shot is fit with the pilgrim woman to make her look proportional"),
+        ObjectGenre(name: "Pilgrm Man", genre: "potrait", title: "Pilgirm Man", image: "Pilgrm Man", object: "Indiana Man.scn", tips: "Eye level shot will make the pilgrim man looks proportional"),
+        ObjectGenre(name: "Pilgrm Woman", genre: "potrait", title: "Pilgirm Woman", image: "Pilgrm Woman", object: "Pilgrim Woman.scn", tips: "Eye level shot is fit with the pilgrim woman to make her look proportional"),
         
         ObjectGenre(name: "Fat Pirate", genre: "potrait", title: "Fat Pirate", image: "Fat Pirate", object: "Fat Pirate.scn", tips: "Eye level shot will make the fat pirate looks proportional, but if you want to make him creeper, use the low angle shot"),
         ObjectGenre(name: "Captain Pirate", genre: "potrait", title: "Pirate Captain", image: "Captain Pirate", object: "Pirate Captain.scn", tips: "You can make the captain more manly dan heroic by capturing it with low angle shot"),

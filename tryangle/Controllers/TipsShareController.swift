@@ -102,9 +102,18 @@ class TipsShareController: UIViewController {
 ////        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
 //    }
     
-    @IBAction func nextButtonDidTap(_ sender: Any) {
+    @IBAction func doneButtonDidTap(_ sender: Any) {
 //        performSegue(withIdentifier: "genreObjectSegueBack", sender: self)
-        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+//        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        print(viewControllers.count)
+//        if let navController = self.navigationController {
+//            navController.popViewController(animated: false)
+//            navController.popViewController(animated: false)
+//            navController.popViewController(animated: false)
+//        }
+    self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true);
+
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

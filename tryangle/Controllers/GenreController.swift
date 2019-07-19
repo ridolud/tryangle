@@ -34,9 +34,9 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
     fileprivate func setUpCollectionView() {
         let layout = UICollectionViewFlowLayout()
         
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        layout.itemSize = CGSize(width: (view.bounds.width - layout.sectionInset.left - layout.sectionInset.right), height: 275)
-        layout.minimumLineSpacing = 20
+        layout.sectionInset = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+        layout.itemSize = CGSize(width: (view.bounds.width - layout.sectionInset.left - layout.sectionInset.right), height: 304)
+        layout.minimumLineSpacing = 32
         
         genreCollectionView.collectionViewLayout = layout
         genreCollectionView.reloadData()

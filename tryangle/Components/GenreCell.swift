@@ -39,20 +39,20 @@ class GenreCell: UICollectionViewCell {
         
         //self.imageView.image = #imageLiteral(resourceName: "genre-1")
         // self.textView.text = "Test name genre"
-        self.textView.font = .boldSystemFont(ofSize: 17)
+        self.textView.font = .boldSystemFont(ofSize: 22)
         // self.textViewChellenge.text = "2/10"
         self.viewWrapper.addSubview(imageView)
         self.viewWrapper.addSubview(labelWrapper)
     
-        labelWrapper.setAnchor(top: nil, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, size: .init(width: imageView.frame.width, height: 70))
+        labelWrapper.setAnchor(top: nil, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, size: .init(width: imageView.frame.width, height: 60))
     
         self.imageView.fillSuperview()
 
         labelWrapper.addSubview(textView)
-        labelWrapper.addSubview(textViewChellenge)
+        //labelWrapper.addSubview(textViewChellenge)
 
-        self.textView.setAnchor(top: labelWrapper.topAnchor, leading: labelWrapper.leadingAnchor, bottom: nil, trailing: labelWrapper.trailingAnchor, padding: .init(top: 10, left: 15, bottom: 0, right: 15), size: .init(width: labelWrapper.frame.width, height: 30))
-        self.textViewChellenge.setAnchor(top: nil, leading: labelWrapper.leadingAnchor, bottom: labelWrapper.bottomAnchor, trailing: labelWrapper.trailingAnchor, padding: .init(top: 0, left: 15, bottom: 10, right: 15), size: .init(width: labelWrapper.frame.width, height: 30))
+        self.textView.setAnchor(top: labelWrapper.topAnchor, leading: labelWrapper.leadingAnchor, bottom: labelWrapper.bottomAnchor, trailing: labelWrapper.trailingAnchor, padding: .init(top: 0, left: 15, bottom: 0, right: 15), size: .init(width: labelWrapper.frame.width, height: 30))
+        //self.textViewChellenge.setAnchor(top: nil, leading: labelWrapper.leadingAnchor, bottom: labelWrapper.bottomAnchor, trailing: labelWrapper.trailingAnchor, padding: .init(top: 0, left: 15, bottom: 10, right: 15), size: .init(width: labelWrapper.frame.width, height: 30))
         
         
         self.addSubview(viewWrapper)

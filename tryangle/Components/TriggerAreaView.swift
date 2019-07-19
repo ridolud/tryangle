@@ -15,7 +15,6 @@ class TriggerAreaView: UIView {
             switch self.currentAngleState{
             case .highAngle, .lowAngle, .eyeAngle:
                 self.readyToCapture()
-                self.setMagesViewAnggle()
             default:
                 return
             }
@@ -35,6 +34,7 @@ class TriggerAreaView: UIView {
     override func awakeFromNib() {
         let originalTransform = self.transform
         self.transform = originalTransform.translatedBy(x: 0.0, y: 267.0)
+        self.setMagesViewAnggle()
     }
     
     func showUp() {
@@ -52,23 +52,35 @@ class TriggerAreaView: UIView {
     
     
     func setMagesViewAnggle() {
-        let imageCapruredView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: 50, height: 60))
-        let imageView = UIImageView()
-        let labelView = UILabel()
-        imageCapruredView.addSubview(imageView)
-        imageCapruredView.addSubview(labelView)
+        let imageCapruredView = UIView()
+////        let imageView = UIImageView()
+////        let labelView = UILabel()
+////        imageView.image = UIImage(named: "Food Genre")
+////        imageCapruredView.addSubview(imageView)
+////        imageCapruredView.addSubview(labelView)
         imageCapruredView.backgroundColor = .gray
-        
+    
+//        imageCapruredView.setAnchor(top: nil, leading: nil, bottom: nil, trailing: nil, size: .init(width: 50, height: 60))
         self.imageViewHighAngle = imageCapruredView
+        
+//        imageCapruredView.backgroundColor = .white
         self.imageViewEyeAngle = imageCapruredView
+        
+//        imageCapruredView.backgroundColor = .blue
         self.imageViewLowAngle = imageCapruredView
         
-        self.imagesViewAnggle = UIStackView(arrangedSubviews: [imageViewHighAngle, imageViewLowAngle, imageViewEyeAngle])
-        self.imagesViewAnggle.distribution = .equalSpacing
+        
+        self.imagesViewAnggle.addArrangedSubview(imageViewHighAngle)
         self.imagesViewAnggle.axis = .horizontal
+        self.imagesViewAnggle.distribution = .equalSpacing
+        self.imagesViewAnggle.alignment = .fill
+        self.imagesViewAnggle.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(imagesViewAnggle)
-        self.imagesViewAnggle.setAnchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, size: .init(width: self.frame.width, height: 60))
+        self.imagesViewAnggle.setAnchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, size: .init(width: self.frame.width, height: 60))
+        self.imageViewLowAngle.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        self.imageViewEyeAngle.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        self.imageViewHighAngle.widthAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
 }

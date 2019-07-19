@@ -24,6 +24,19 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationConfig()
+    }
+    
+    
+    // Config navigation.
+    func navigationConfig() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.barTintColor = .init(red: 0.250952, green: 0.251, blue: 0.250946, alpha: 1)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return objectGenreData.count
     }

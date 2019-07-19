@@ -52,11 +52,21 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 
         setDelegate()
         setUpCollectionView()
+        
+//        print(self.navigationController?.navigationBar.barTintColor)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        self.navigationConfig()
+    }
+    
+    
+    // Config navigation.
+    func navigationConfig() {
+        self.navigationController?.navigationBar.barTintColor = .init(red: 0.250952, green: 0.251, blue: 0.250946, alpha: 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -36,6 +36,19 @@ class TipsShareController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationConfig()
+    }
+    
+    
+    // Config navigation.
+    func navigationConfig() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.barTintColor = .init(red: 0.250952, green: 0.251, blue: 0.250946, alpha: 1)
+    }
+    
     @IBAction func shareDidTap(_ sender: Any) {
         checkPhotoLibraryAuthorization()
     }
@@ -98,35 +111,11 @@ class TipsShareController: UIViewController {
         }
     }
     
-//    @IBAction func unwindToGenreObject(_ sender: UIStoryboardSegue) {
-////        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-//    }
-    
     @IBAction func doneButtonDidTap(_ sender: Any) {
-//        performSegue(withIdentifier: "genreObjectSegueBack", sender: self)
-//        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
-//        print(viewControllers.count)
-//        if let navController = self.navigationController {
-//            navController.popViewController(animated: false)
-//            navController.popViewController(animated: false)
-//            navController.popViewController(animated: false)
-//        }
-    self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true);
-
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        if segue.identifier == "genreObjectSegueBack" {
-////            guard let indexPath = genreCollectionView.indexPathsForSelectedItems?.first, let objectGenreVC = segue.destination as? ObjectGenreController else { return }
-//            let objectGenreVC = segue.destination as! ObjectGenreController
-//            let genreModel = GenreModel()
-//            let currentGenre = genreModel.data[ 0 ]
-//            objectGenreVC.title = currentGenre.title
-//            let objectGenre = ObjectGenreModel()
-//            objectGenreVC.objectGenreData = objectGenre.getByGenreName(name: currentGenre.name)
-//            print(objectGenreVC.objectGenreData)
-//        }
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+
     }
     
 }

@@ -33,7 +33,6 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     
     // Config navigation.
     func navigationConfig() {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.barTintColor = .init(red: 0.250952, green: 0.251, blue: 0.250946, alpha: 1)
     }
     

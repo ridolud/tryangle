@@ -40,6 +40,8 @@ extension ARSCNView {
 //            fileManager.createFile(atPath: paths as String, contents: data, attributes: nil)
 //            print(fileManager.contents(atPath: paths))
 //        }
+        
+        print("halo")
         return image
     }
 

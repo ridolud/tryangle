@@ -36,8 +36,9 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     // angle state status
     var currentAngleState: AngleStepStatus? = nil {
+        
         didSet {
-            
+            print(self.currentAngleState)
             self.triggerArea.currentAngleState = self.currentAngleState!
             
             if self.currentAngleState == .initialized {
@@ -220,19 +221,24 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBAction func triggerAction(_ sender: UIButton) {
         
         switch self.currentAngleState {
+        
         case .addedObject?:
             self.currentAngleState = .highAngle
+        
         case .highAngle?:
-            self.addCatureToImageAngle(angle: .high)
             self.currentAngleState = .eyeAngle
+            self.addCatureToImageAngle(angle: .high)
+        
         case .eyeAngle?:
-            self.addCatureToImageAngle(angle: .eye)
             self.currentAngleState = .lowAngle
+            self.addCatureToImageAngle(angle: .eye)
+        
         case .lowAngle?:
-            self.addCatureToImageAngle(angle: .low)
             self.currentAngleState = .finished
+            self.addCatureToImageAngle(angle: .low)
             performSegue(withIdentifier: "arToComparing", sender: nil)
             print(imageAngle)
+        
         default:
             return
         }
@@ -241,6 +247,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     func addCatureToImageAngle(angle: Angle) {
         self.imageAngle[angle] = self.sceneView.captureImageAndKeep()
+        self.triggerArea.addImageAngle(angle: angle, image: self.imageAngle[angle]!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

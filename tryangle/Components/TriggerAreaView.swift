@@ -15,15 +15,16 @@ class TriggerAreaView: UIView {
             switch self.currentAngleState{
             case .highAngle, .lowAngle, .eyeAngle:
                 self.readyToCapture()
+                self.setMagesViewAnggle()
             default:
                 return
             }
         }
     }
     
-    var imageViewHighAngle = UIView()
-    var imageViewEyeAngle = UIView()
-    var imageViewLowAngle = UIView()
+    var imageViewHighAngle = UIImage()
+    var imageViewEyeAngle = UIImage()
+    var imageViewLowAngle = UIImage()
     
     // init
     var triggerButton = UIButton()
@@ -34,7 +35,6 @@ class TriggerAreaView: UIView {
     override func awakeFromNib() {
         let originalTransform = self.transform
         self.transform = originalTransform.translatedBy(x: 0.0, y: 267.0)
-        self.setMagesViewAnggle()
     }
     
     func showUp() {
@@ -52,35 +52,75 @@ class TriggerAreaView: UIView {
     
     
     func setMagesViewAnggle() {
-        let imageCapruredView = UIView()
-////        let imageView = UIImageView()
-////        let labelView = UILabel()
-////        imageView.image = UIImage(named: "Food Genre")
-////        imageCapruredView.addSubview(imageView)
-////        imageCapruredView.addSubview(labelView)
-        imageCapruredView.backgroundColor = .gray
-    
-//        imageCapruredView.setAnchor(top: nil, leading: nil, bottom: nil, trailing: nil, size: .init(width: 50, height: 60))
-        self.imageViewHighAngle = imageCapruredView
         
-//        imageCapruredView.backgroundColor = .white
-        self.imageViewEyeAngle = imageCapruredView
+        imagesViewAnggle.removeFromSuperview()
         
-//        imageCapruredView.backgroundColor = .blue
-        self.imageViewLowAngle = imageCapruredView
+        imagesViewAnggle = UIStackView(arrangedSubviews: [
+            self.generateAngleImgeView(angle: .high, image: imageViewHighAngle),
+            self.generateAngleImgeView(angle: .eye, image: imageViewEyeAngle),
+            self.generateAngleImgeView(angle: .low, image: imageViewLowAngle)
+        ])
         
+        imagesViewAnggle.translatesAutoresizingMaskIntoConstraints = false
         
-        self.imagesViewAnggle.addArrangedSubview(imageViewHighAngle)
-        self.imagesViewAnggle.axis = .horizontal
-        self.imagesViewAnggle.distribution = .equalSpacing
-        self.imagesViewAnggle.alignment = .fill
-        self.imagesViewAnggle.translatesAutoresizingMaskIntoConstraints = false
+        imagesViewAnggle.axis = .horizontal
+        imagesViewAnggle.distribution = .equalSpacing
         
         self.addSubview(imagesViewAnggle)
-        self.imagesViewAnggle.setAnchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, size: .init(width: self.frame.width, height: 60))
-        self.imageViewLowAngle.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        self.imageViewEyeAngle.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        self.imageViewHighAngle.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        imagesViewAnggle.setAnchor(top: topAnchor, leading: nil, bottom: nil, trailing: nil, size: .init(width: 291, height: 74))
+        imagesViewAnggle.setCenterX(toView: self)
+        
     }
     
+    func generateAngleImgeView(angle: Angle, image: UIImage) -> UIView {
+        let angleView = UIStackView()
+        
+        angleView.translatesAutoresizingMaskIntoConstraints = false
+        angleView.widthAnchor.constraint(equalToConstant: 53).isActive = true
+        let labelAngle = UILabel()
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleToFill
+        imageView.layer.borderColor = .none
+        imageView.layer.borderWidth = 2
+        labelAngle.text = angle.description
+        labelAngle.textAlignment = .center
+        labelAngle.textColor = .white
+        angleView.addArrangedSubview(labelAngle)
+        angleView.addArrangedSubview(imageView)
+        angleView.axis = .vertical
+        labelAngle.heightAnchor.constraint(equalToConstant: 21).isActive = true
+        
+        switch self.currentAngleState {
+        case .highAngle, .addedObject, .initialized:
+            if angle == .high {
+                imageView.layer.borderColor = UIColor.white.cgColor
+            }
+        case .eyeAngle:
+            if angle == .eye {
+                imageView.layer.borderColor = UIColor.white.cgColor
+            }
+        case .lowAngle:
+            if angle == .low {
+                imageView.layer.borderColor = UIColor.white.cgColor
+            }
+        default:
+            imageView.layer.borderColor = .none
+        }
+        
+        return angleView
+    }
+    
+    func addImageAngle(angle: Angle ,image: UIImage) {
+        switch angle {
+        case .high:
+            imageViewHighAngle = image
+        case .eye:
+            imageViewEyeAngle = image
+        case .low:
+            imageViewLowAngle = image
+        }
+        self.setMagesViewAnggle()
+        print([imageViewHighAngle, imageViewEyeAngle, imageViewLowAngle])
+    }
 }

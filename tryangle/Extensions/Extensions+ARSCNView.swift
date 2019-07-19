@@ -22,7 +22,7 @@ extension ARSCNView {
     }
     
     func feedbackAddedObject() {
-        let generator = UIImpactFeedbackGenerator(style: .medium)
+        let generator = UIImpactFeedbackGenerator(style: .light)
         generator.impactOccurred()
     }
     

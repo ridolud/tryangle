@@ -35,6 +35,7 @@ class GenreCell: UICollectionViewCell {
     
     fileprivate func setUpView() {
         
+        imageView.contentMode = .scaleToFill
         labelWrapper.backgroundColor = .white
         
         //self.imageView.image = #imageLiteral(resourceName: "genre-1")

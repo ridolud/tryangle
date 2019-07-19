@@ -21,9 +21,6 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // default titles navigation bar 
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-//        currentGenreStatus = userDef.integer(forKey: "currentGenreStatus")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,9 +43,10 @@ class ObjectGenreController: UIViewController, UICollectionViewDataSource, UICol
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "genreObjectARSegue" {
-            guard let indexPath = objectGenreCollection.indexPathsForSelectedItems?.first, let ARCameraVC = segue.destination as? ARCameraController else { return }
+            guard let indexPath = objectGenreCollection.indexPathsForSelectedItems?.first, let ARCameraVC = segue.destination as? ARAngleControlle else { return }
             let currentGenreObject = objectGenreData[indexPath.row]
             ARCameraVC.title = currentGenreObject.title
+            ARCameraVC.currentGenreObject = currentGenreObject
         }
     }
 

@@ -21,11 +21,16 @@ extension ARSCNView {
         print([newMetrix.m41, newMetrix.m42, newMetrix.m43])
     }
     
+    func feedbackAddedObject() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+    }
+    
     // Is't in save area to take photo ?
     
     // Is't in same angle position ?
     
-    func captureImageAndKeep(angle: Angle ) -> Bool {
+    func captureImageAndKeep() -> UIImage {
         let image = self.snapshot()
 //        if let data = image.jpegData(compressionQuality: 0) {
 //
@@ -35,7 +40,7 @@ extension ARSCNView {
 //            fileManager.createFile(atPath: paths as String, contents: data, attributes: nil)
 //            print(fileManager.contents(atPath: paths))
 //        }
-        return false
+        return image
     }
 
 }

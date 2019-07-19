@@ -17,7 +17,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet weak var triggerArea: TriggerAreaView!
     
-    @IBOutlet weak var triggerButton: TriggerButton!
+    @IBOutlet weak var triggerButton: UIButton!
     
     var infoLabel = ARNotificationLabel()
     
@@ -37,6 +37,8 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     // angle state status
     var currentAngleState: AngleStepStatus? = nil {
         didSet {
+            
+            self.triggerArea.currentAngleState = self.currentAngleState!
             
             if self.currentAngleState == .initialized {
                 self.loadingView.stopLoading()
@@ -85,7 +87,9 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // add info label
         self.view.addSubview(infoLabel)
         
+        // set trigger area
         triggerArea.triggerButton = triggerButton
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -214,8 +218,6 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
 
     @IBAction func triggerAction(_ sender: UIButton) {
-        self.triggerArea.triggerButton.setTitle("", for: .normal)
-        self.triggerArea.triggerButton.setImage(#imageLiteral(resourceName: "cameraButton"), for: .normal)
         
         switch self.currentAngleState {
         case .addedObject?:

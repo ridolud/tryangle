@@ -54,12 +54,12 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
         setUpCollectionView()
         
 //        print(self.navigationController?.navigationBar.barTintColor)
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationConfig()
     }
     

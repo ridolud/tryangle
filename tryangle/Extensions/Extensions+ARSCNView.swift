@@ -9,6 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import AVFoundation
 
 extension ARSCNView {
 
@@ -32,15 +33,17 @@ extension ARSCNView {
     
     func captureImageAndKeep() -> UIImage {
         let image = self.snapshot()
-//        if let data = image.jpegData(compressionQuality: 0) {
-//
-//            let fileManager = FileManager.default
-//            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Temp Photo/\(angle.description).jpg")
-//            print(fileManager.contents(atPath: paths))
-//            fileManager.createFile(atPath: paths as String, contents: data, attributes: nil)
-//            print(fileManager.contents(atPath: paths))
-//        }
-        return image
+        
+        let viewWidth = (self.superview?.frame.width)!
+        let width: CGFloat = image.size.width
+        let height = (width * 4) / 3
+        
+        let x: CGFloat = 0
+        let y: CGFloat = 88 * (width / viewWidth)
+        let cropArea = CGRect(x: x, y: y, width: width, height: height)
+        let croppedImage = image.cgImage?.cropping(to: cropArea)
+        
+        return UIImage(cgImage: croppedImage!)
     }
 
 }

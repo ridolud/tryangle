@@ -74,6 +74,14 @@ class ComparingController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.navigationConfig()
+    }
+    
+    
+    // Config navigation.
+    func navigationConfig() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.barTintColor = .init(red: 0.250952, green: 0.251, blue: 0.250946, alpha: 1)
     }
     
     @objc func multipleTap(_ sender: UIButton, event: UIEvent) {

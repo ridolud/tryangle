@@ -105,7 +105,7 @@ class TriggerAreaView: UIView {
                 imageView.layer.borderColor = UIColor.white.cgColor
             }
         default:
-            imageView.layer.borderColor = .none
+            imageView.layer.borderColor = UIColor.init(red: 158, green: 158, blue: 158, alpha: 158).cgColor
         }
         
         return angleView

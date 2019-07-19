@@ -24,7 +24,6 @@
 		7F0F469722E083CB0023D3F3 /* ARAngleControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F469622E083CB0023D3F3 /* ARAngleControlle.swift */; };
 		7F0F469922E08DBE0023D3F3 /* ARNotificationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F469822E08DBE0023D3F3 /* ARNotificationLabel.swift */; };
 		7F0F469B22E090CA0023D3F3 /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F469A22E090CA0023D3F3 /* LoadingScreenView.swift */; };
-		7F0F469D22E091B90023D3F3 /* ReviewAngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F469C22E091B90023D3F3 /* ReviewAngleView.swift */; };
 		7F0F469F22E119A20023D3F3 /* TriggerAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F469E22E119A20023D3F3 /* TriggerAreaView.swift */; };
 		7F1CF8DF22CD0E480062DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */; };
 		7F1CF8E422CD0E480062DB61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1CF8E222CD0E480062DB61 /* Main.storyboard */; };
@@ -43,6 +42,8 @@
 		7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCE22D5994A00868484 /* GenreCell.swift */; };
 		7F95ABD122D59A9100868484 /* Estensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABD022D59A9100868484 /* Estensions+UIView.swift */; };
 		7F96B68722D869D000FEACDA /* GridCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96B68622D869D000FEACDA /* GridCameraView.swift */; };
+		7F9D32C222E2509800E0778F /* ARAlertImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9D32C122E2509800E0778F /* ARAlertImage.xib */; };
+		7F9D32C422E2564700E0778F /* ARAlertImageReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9D32C322E2564700E0778F /* ARAlertImageReview.swift */; };
 		7FAC989A22DDC454007F6957 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC989922DDC454007F6957 /* GenreModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +65,6 @@
 		7F0F469622E083CB0023D3F3 /* ARAngleControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAngleControlle.swift; sourceTree = "<group>"; };
 		7F0F469822E08DBE0023D3F3 /* ARNotificationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARNotificationLabel.swift; sourceTree = "<group>"; };
 		7F0F469A22E090CA0023D3F3 /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
-		7F0F469C22E091B90023D3F3 /* ReviewAngleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAngleView.swift; sourceTree = "<group>"; };
 		7F0F469E22E119A20023D3F3 /* TriggerAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerAreaView.swift; sourceTree = "<group>"; };
 		7F1CF8DB22CD0E480062DB61 /* tryangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tryangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1CF8DE22CD0E480062DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +85,8 @@
 		7F95ABCE22D5994A00868484 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		7F95ABD022D59A9100868484 /* Estensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Estensions+UIView.swift"; sourceTree = "<group>"; };
 		7F96B68622D869D000FEACDA /* GridCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCameraView.swift; sourceTree = "<group>"; };
+		7F9D32C122E2509800E0778F /* ARAlertImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARAlertImage.xib; sourceTree = "<group>"; };
+		7F9D32C322E2564700E0778F /* ARAlertImageReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAlertImageReview.swift; sourceTree = "<group>"; };
 		7FAC989922DDC454007F6957 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,8 +174,8 @@
 				7A08B24622DDB33C00F74673 /* CustomImageButton.swift */,
 				7F0F469822E08DBE0023D3F3 /* ARNotificationLabel.swift */,
 				7F0F469A22E090CA0023D3F3 /* LoadingScreenView.swift */,
-				7F0F469C22E091B90023D3F3 /* ReviewAngleView.swift */,
 				7F0F469E22E119A20023D3F3 /* TriggerAreaView.swift */,
+				7F9D32C322E2564700E0778F /* ARAlertImageReview.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,6 +197,7 @@
 				7F1CF8E222CD0E480062DB61 /* Main.storyboard */,
 				7F1CF8EA22CD0E490062DB61 /* LaunchScreen.storyboard */,
 				7A73B90722D9B9CB002E2231 /* Backup.storyboard */,
+				7F9D32C122E2509800E0778F /* ARAlertImage.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				7A58214B22DC918B004D18BB /* Low2.jpg in Resources */,
 				7A58214A22DC918B004D18BB /* High2.jpg in Resources */,
 				7F1CF8E922CD0E490062DB61 /* Assets.xcassets in Resources */,
+				7F9D32C222E2509800E0778F /* ARAlertImage.xib in Resources */,
 				7A73B90F22D9C0E7002E2231 /* Eye.jpg in Resources */,
 				7A73B90822D9B9CB002E2231 /* Backup.storyboard in Resources */,
 				7A73B91022D9C0E7002E2231 /* High.jpg in Resources */,
@@ -299,8 +303,8 @@
 				7F95ABCF22D5994A00868484 /* GenreCell.swift in Sources */,
 				7F0F469522DEE15D0023D3F3 /* ObjectGenreModel.swift in Sources */,
 				7F1CF8E722CD0E480062DB61 /* tryangle.xcdatamodeld in Sources */,
-				7F0F469D22E091B90023D3F3 /* ReviewAngleView.swift in Sources */,
 				7F0F469B22E090CA0023D3F3 /* LoadingScreenView.swift in Sources */,
+				7F9D32C422E2564700E0778F /* ARAlertImageReview.swift in Sources */,
 				7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */,
 				7F3ED3E622DCE4B90002138C /* ARSCNCameraView.swift in Sources */,
 				7A08B24B22DDBA6700F74673 /* ObjectGenreController.swift in Sources */,
@@ -459,7 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 497N7524MA;
+				DEVELOPMENT_TEAM = UUHXR699G4;
 				INFOPLIST_FILE = tryangle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,7 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 497N7524MA;
+				DEVELOPMENT_TEAM = UUHXR699G4;
 				INFOPLIST_FILE = tryangle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -38,7 +38,6 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var currentAngleState: AngleStepStatus? = nil {
         
         didSet {
-            print(self.currentAngleState)
             self.triggerArea.currentAngleState = self.currentAngleState!
             
             if self.currentAngleState == .initialized {
@@ -226,18 +225,16 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             self.currentAngleState = .highAngle
         
         case .highAngle?:
-            self.currentAngleState = .eyeAngle
-            self.addCatureToImageAngle(angle: .high)
+            self.addCatureToImageAngle(angle: .high, nextStep: .eyeAngle)
         
         case .eyeAngle?:
-            self.currentAngleState = .lowAngle
-            self.addCatureToImageAngle(angle: .eye)
+            self.addCatureToImageAngle(angle: .eye, nextStep: .lowAngle)
         
         case .lowAngle?:
-            self.currentAngleState = .finished
-            self.addCatureToImageAngle(angle: .low)
-            performSegue(withIdentifier: "arToComparing", sender: nil)
-            print(imageAngle)
+            self.addCatureToImageAngle(angle: .low, nextStep: .finished)
+        
+        case .finished?:
+            toComparingView()
         
         default:
             return
@@ -245,9 +242,21 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
     }
     
-    func addCatureToImageAngle(angle: Angle) {
-        self.imageAngle[angle] = self.sceneView.captureImageAndKeep()
-        self.triggerArea.addImageAngle(angle: angle, image: self.imageAngle[angle]!)
+    func toComparingView() {
+        performSegue(withIdentifier: "arToComparing", sender: nil)
+    }
+    
+    func addCatureToImageAngle(angle: Angle, nextStep: AngleStepStatus) {
+        let image = self.sceneView.captureImageAndKeep()
+        ARAlertImageReview.instance.showDialog(image: image) { (isUsePhoto) in
+            if isUsePhoto {
+                self.imageAngle[angle] = image
+                self.triggerArea.addImageAngle(angle: angle, image: image)
+                self.currentAngleState = nextStep
+                if nextStep == .finished { self.toComparingView() }
+            }
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

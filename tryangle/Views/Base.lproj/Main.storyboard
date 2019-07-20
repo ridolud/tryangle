@@ -327,7 +327,9 @@
                                             <constraint firstAttribute="height" constant="80" id="9ZV-tK-4Oh"/>
                                             <constraint firstAttribute="width" constant="80" id="DMR-QW-DdI"/>
                                         </constraints>
-                                        <state key="normal" title="Next"/>
+                                        <state key="normal" title="Next" image="nextButton">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="triggerAction:" destination="bkW-OS-8WU" eventType="touchUpInside" id="2cl-Ek-thj"/>
                                         </connections>
@@ -619,6 +621,7 @@
         <image name="Low.jpg" width="600" height="450"/>
         <image name="TapSymbol" width="29" height="38"/>
         <image name="add-3dobject-btn" width="80" height="80"/>
+        <image name="nextButton" width="80" height="80"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

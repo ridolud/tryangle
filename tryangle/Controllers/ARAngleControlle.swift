@@ -31,9 +31,6 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     // selected object name
     var currentGenreObject: ObjectGenre?
     
-    // Loading Screen
-    var loadingView = LoadingScreenView()
-    
     // angle state status
     var currentAngleState: AngleStepStatus? = nil {
         
@@ -41,7 +38,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             self.triggerArea.currentAngleState = self.currentAngleState!
             
             if self.currentAngleState == .initialized {
-                self.loadingView.stopLoading()
+                LoadingScreenView.instance.stopLoading()
             }
             
             if self.currentAngleState == .addedObject {
@@ -63,7 +60,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         super.viewDidLoad()
         
         // init loading screeen.
-        self.view.addSubview(loadingView)
+        LoadingScreenView.instance.startLoading()
         
         // Config navigation.
         self.navigationConfig()

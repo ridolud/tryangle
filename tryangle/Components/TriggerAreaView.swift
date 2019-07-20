@@ -38,6 +38,7 @@ class TriggerAreaView: UIView {
     }
     
     func showUp() {
+        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         let originalTransform = self.transform
         UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
             self.transform = originalTransform.translatedBy(x: 0.0, y: -267.0)
@@ -52,7 +53,7 @@ class TriggerAreaView: UIView {
     
     
     func setMagesViewAnggle() {
-        
+        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         imagesViewAnggle.removeFromSuperview()
         
         imagesViewAnggle = UIStackView(arrangedSubviews: [

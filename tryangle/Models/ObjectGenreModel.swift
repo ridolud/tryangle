@@ -28,7 +28,7 @@ struct ObjectGenre {
 
         self.genre = genre
 
-        self.object = SCNScene(named: object)
+        self.object = SCNScene(named: object, inDirectory: "ObjectMedia.scnassets")
         
         self.tips = tips
     }

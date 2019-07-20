@@ -150,14 +150,17 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             return
             
         }
+        
+        print("Camera state: \(camera.trackingState)")
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         DispatchQueue.main.sync {
-            if self.selectedNode == nil, let objectName = currentGenreObject?.name {
-                let objectScene = SCNScene(named: "\(objectName).scn", inDirectory: "ObjectMedia.scnassets")
-                self.selectedNode = objectScene?.rootNode.childNode(withName: objectName, recursively: true)
+            if self.currentAngleState == .initialized , let objectName = currentGenreObject {
+                print(objectName)
+                let objectScene = objectName.object
+                self.selectedNode = objectScene?.rootNode.childNode(withName: objectName.name, recursively: true)
                 self.selectedNode?.simdPosition = float3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
                 guard let nodeSelected = self.selectedNode else {return}
                 self.sceneView.scene.rootNode.addChildNode(nodeSelected)
@@ -208,7 +211,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @objc func didPan(_ gesture: UIPanGestureRecognizer){
         guard let object = selectedNode, self.currentAngleState == .addedObject  else {return}
         let panLocation = gesture.location(in: sceneView)
-        let results = sceneView.hitTest(panLocation, types: .existingPlaneUsingExtent)
+        let results = sceneView.hitTest(panLocation, types: .estimatedHorizontalPlane)
         
         if let result = results.first {
             let translation = result.worldTransform.translation

@@ -90,6 +90,65 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // set trigger area
         triggerArea.triggerButton = triggerButton
         
+        
+        addLight()
+    }
+    
+    func addLight() {
+        // 1
+        let directionalLight = SCNLight()
+        directionalLight.type = .directional
+        // 2
+        directionalLight.intensity = 10
+        // 3
+        directionalLight.castsShadow = true
+        directionalLight.shadowMode = .deferred
+        // 4
+        directionalLight.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        // 5
+        directionalLight.shadowSampleCount = 10
+        // 6
+        let directionalLightNode = SCNNode()
+        directionalLightNode.light = directionalLight
+        directionalLightNode.rotation = SCNVector4Make(1, 0, 0, -Float.pi / 3)
+        sceneView.scene.rootNode.addChildNode(directionalLightNode)
+//        let flourPlane = SCNFloor()
+//        let groundPlane = SCNNode()
+//        let groundMaterial = SCNMaterial()
+//        groundMaterial.lightingModel = .constant
+//        groundMaterial.writesToDepthBuffer = true
+//        groundMaterial.colorBufferWriteMask = []
+//        groundMaterial.isDoubleSided = true
+//        flourPlane.materials = [groundMaterial]
+//        groundPlane.geometry = flourPlane
+//        //
+//        sceneView.scene.rootNode.addChildNode(groundPlane)
+//        // Create a ambient light
+//        let ambientLight = SCNNode()
+//        ambientLight.light = SCNLight()
+//        ambientLight.light?.shadowMode = .deferred
+//        ambientLight.light?.color = UIColor.white
+//        ambientLight.light?.type = SCNLight.LightType.ambient
+//        ambientLight.position = SCNVector3(x: 0,y: 5,z: 0)
+//        // Create a directional light node with shadow
+//        let myNode = SCNNode()
+//        myNode.light = SCNLight()
+//        myNode.light?.type = SCNLight.LightType.directional
+//        myNode.light?.color = UIColor.white
+//        myNode.light?.castsShadow = true
+//        myNode.light?.automaticallyAdjustsShadowProjection = true
+//        myNode.light?.shadowSampleCount = 64
+//        myNode.light?.shadowRadius = 16
+//        myNode.light?.shadowMode = .deferred
+//        myNode.light?.shadowMapSize = CGSize(width: 2048, height: 2048)
+//        myNode.light?.shadowColor = UIColor.black.withAlphaComponent(0.75)
+//        myNode.position = SCNVector3(x: 0,y: 5,z: 0)
+//        myNode.eulerAngles = SCNVector3(-Float.pi / 2, 0, 0)
+//        // Add the lights to the container
+//        sceneView.scene.rootNode.addChildNode(ambientLight)
+//        sceneView.scene.rootNode.addChildNode(myNode)
+//        // End
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

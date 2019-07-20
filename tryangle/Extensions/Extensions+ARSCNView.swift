@@ -42,7 +42,6 @@ extension ARSCNView {
         let y: CGFloat = topDistance * (width / viewWidth)
         let cropArea = CGRect(x: x, y: y, width: width, height: height)
         let croppedImage = image.cgImage?.cropping(to: cropArea)
-        print(cropArea)
         return UIImage(cgImage: croppedImage!)
     }
 

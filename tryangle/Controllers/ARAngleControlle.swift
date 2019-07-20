@@ -246,8 +246,22 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         performSegue(withIdentifier: "arToComparing", sender: nil)
     }
     
+    
+    public var topDistance : CGFloat{
+        get{
+            if self.navigationController != nil && !self.navigationController!.navigationBar.isTranslucent{
+                return 0
+            }else{
+                let barHeight=self.navigationController?.navigationBar.frame.height ?? 0
+                let statusBarHeight = UIApplication.shared.isStatusBarHidden ? CGFloat(0) : UIApplication.shared.statusBarFrame.height
+                return barHeight + statusBarHeight
+            }
+        }
+    }
+    
     func addCatureToImageAngle(angle: Angle, nextStep: AngleStepStatus) {
-        let image = self.sceneView.captureImageAndKeep()
+        let navBarAndStatusBarHeight = topDistance
+        let image = self.sceneView.captureImageAndKeep(topDistance: navBarAndStatusBarHeight)
         ARAlertImageReview.instance.showDialog(image: image) { (isUsePhoto) in
             if isUsePhoto {
                 self.imageAngle[angle] = image

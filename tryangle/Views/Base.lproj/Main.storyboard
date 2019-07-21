@@ -334,21 +334,12 @@
                                             <action selector="triggerAction:" destination="bkW-OS-8WU" eventType="touchUpInside" id="2cl-Ek-thj"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to place your object" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64M-M8-bNv">
-                                        <rect key="frame" x="8" y="40" width="398" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ahK-Z4-Lxq" firstAttribute="top" secondItem="Skr-zh-ktM" secondAttribute="top" constant="103" id="3SU-i5-AWq"/>
                                     <constraint firstItem="ahK-Z4-Lxq" firstAttribute="centerX" secondItem="Skr-zh-ktM" secondAttribute="centerX" id="QGx-yA-41E"/>
                                     <constraint firstAttribute="height" constant="267" id="Zfe-e7-diy"/>
-                                    <constraint firstItem="64M-M8-bNv" firstAttribute="leading" secondItem="Skr-zh-ktM" secondAttribute="leading" constant="8" id="o1g-vv-OBz"/>
-                                    <constraint firstAttribute="trailing" secondItem="64M-M8-bNv" secondAttribute="trailing" constant="8" id="xTz-c8-Riz"/>
-                                    <constraint firstItem="64M-M8-bNv" firstAttribute="top" secondItem="Skr-zh-ktM" secondAttribute="top" constant="40" id="zS5-sJ-sN2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -368,7 +359,6 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
-                        <outlet property="noticeLabel" destination="64M-M8-bNv" id="n2D-Fd-5sA"/>
                         <outlet property="sceneView" destination="OgL-Xr-VcL" id="yOE-On-144"/>
                         <outlet property="triggerArea" destination="Skr-zh-ktM" id="oEZ-j5-nuf"/>
                         <outlet property="triggerButton" destination="ahK-Z4-Lxq" id="8cO-uj-uiS"/>

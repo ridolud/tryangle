@@ -10,30 +10,16 @@ import UIKit
 
 class GridCameraView: UIView {
 
-//    var grids: [UIview]!
+    static let instance = GridCameraView()
     
-    func createGrid() {
-        
-        let width = self.bounds.width
-        let height = self.bounds.height
-        
-        for n in 1...2 {
-            let gridV = UIView(frame: CGRect(x: CGFloat(width/3) * CGFloat(n), y: 0, width: 1, height: height))
-            gridV.backgroundColor = .white
-            gridV.alpha = 0.4
-            self.addSubview(gridV);
-            
-            let gridH = UIView(frame: CGRect(x: 0, y: CGFloat(height/3) * CGFloat(n), width: width, height: 1))
-            gridH.backgroundColor = .white
-            gridH.alpha = 0.4
-            self.addSubview(gridH);
-        }
+    @IBOutlet var mainView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        Bundle.main.loadNibNamed("GridCamera", owner: self, options: nil)
     }
     
-    override func didMoveToSuperview() {
-        createGrid()
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    
-    
-
 }

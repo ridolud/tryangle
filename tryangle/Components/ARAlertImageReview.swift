@@ -53,7 +53,11 @@ class ARAlertImageReview: UIView {
         self.imageAngle.image = image
         self.callback = completion
         UIApplication.shared.keyWindow?.addSubview(mainView)
-        //mainView.fillSuperview()
+        
+
+        
     }
+    
+    
     
 }

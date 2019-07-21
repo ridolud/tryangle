@@ -37,6 +37,8 @@
 		7F3ED3E822DCE7870002138C /* Extensions+ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */; };
 		7F3ED3EC22DD067E0002138C /* ObjectMedia.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F3ED3EB22DD067E0002138C /* ObjectMedia.scnassets */; };
 		7F5F920122E2EBC300ABCF37 /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5F920022E2EBC300ABCF37 /* LoadingScreen.xib */; };
+		7F5F920322E2FC6900ABCF37 /* ARNotificationLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5F920222E2FC6900ABCF37 /* ARNotificationLabel.xib */; };
+		7F5F920522E3C8B900ABCF37 /* GridCamera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5F920422E3C8B900ABCF37 /* GridCamera.xib */; };
 		7F60F4FC22CD29AB00D23178 /* liveCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */; };
 		7F93AD1E22D47E1A007ED2C0 /* ARCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */; };
 		7F95ABCC22D593DD00868484 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95ABCB22D593DD00868484 /* GenreController.swift */; };
@@ -81,6 +83,8 @@
 		7F3ED3E722DCE7870002138C /* Extensions+ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ARSCNView.swift"; sourceTree = "<group>"; };
 		7F3ED3EB22DD067E0002138C /* ObjectMedia.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = ObjectMedia.scnassets; sourceTree = "<group>"; };
 		7F5F920022E2EBC300ABCF37 /* LoadingScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreen.xib; sourceTree = "<group>"; };
+		7F5F920222E2FC6900ABCF37 /* ARNotificationLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARNotificationLabel.xib; sourceTree = "<group>"; };
+		7F5F920422E3C8B900ABCF37 /* GridCamera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridCamera.xib; sourceTree = "<group>"; };
 		7F60F4FB22CD29AB00D23178 /* liveCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveCameraView.swift; sourceTree = "<group>"; };
 		7F93AD1D22D47E1A007ED2C0 /* ARCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraController.swift; sourceTree = "<group>"; };
 		7F95ABCB22D593DD00868484 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				7A73B90722D9B9CB002E2231 /* Backup.storyboard */,
 				7F9D32C122E2509800E0778F /* ARAlertImage.xib */,
 				7F5F920022E2EBC300ABCF37 /* LoadingScreen.xib */,
+				7F5F920222E2FC6900ABCF37 /* ARNotificationLabel.xib */,
+				7F5F920422E3C8B900ABCF37 /* GridCamera.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,7 +280,9 @@
 			files = (
 				7F1CF8EC22CD0E490062DB61 /* LaunchScreen.storyboard in Resources */,
 				7F3ED3EC22DD067E0002138C /* ObjectMedia.scnassets in Resources */,
+				7F5F920322E2FC6900ABCF37 /* ARNotificationLabel.xib in Resources */,
 				7A73B90E22D9C0E7002E2231 /* Low.jpg in Resources */,
+				7F5F920522E3C8B900ABCF37 /* GridCamera.xib in Resources */,
 				7A58214C22DC918B004D18BB /* Eye2.jpg in Resources */,
 				7A58214B22DC918B004D18BB /* Low2.jpg in Resources */,
 				7A58214A22DC918B004D18BB /* High2.jpg in Resources */,

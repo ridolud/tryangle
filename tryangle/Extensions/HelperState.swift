@@ -63,12 +63,40 @@ enum Angle: String, CustomStringConvertible {
     }
 }
 
+enum ARStateLabel: String, CustomStringConvertible {
+    
+    case
+    findSurface = "find surface",
+    objectAdded = "object added",
+    inHighAngle = "in high angle",
+    inEyeAngle = "in eye angle",
+    inLowAngle = "in low angle",
+    wrongZone = "wrong zone"
+    
+    var description: String {
+        switch self {
+        case .findSurface:
+            return "Find a well-lit surface"
+            
+        case .objectAdded:
+            return "Object added"
+            
+        case .inHighAngle:
+            return "High-level zone"
+        
+        case .inEyeAngle:
+            return "Eye-level zone"
+            
+        case .inLowAngle:
+            return "Low-level zone"
+            
+        case .wrongZone:
+            return "Wrong Zone"
+        }
+    }
+    
+}
 
-// TODO: Buat class/struc untuk menghendle configurasi AR di setiap step
-//struct AngleStepStatusHendle {
-//
-//    let status: AngleStepStatus
-//
-//    let title: String
-//
-//}
+enum StyleNotifState: String {
+    case normal = "normal", warning = "warning", danger = "danger"
+}

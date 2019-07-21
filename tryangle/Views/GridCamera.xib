@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GridCameraView" customModule="tryangle" customModuleProvider="target">
+            <connections>
+                <outlet property="mainView" destination="iN0-l3-epB" id="gNc-Pd-tXN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="553"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="183" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1BG-2s-Ur0">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="553"/>
+                    <subviews>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIP-OD-GOK">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="0Rj-2m-LXZ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzO-jH-6Wa">
+                            <rect key="frame" x="0.0" y="184" width="414" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="m45-LU-iWD"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ID-8T-t9g">
+                            <rect key="frame" x="0.0" y="368" width="414" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="bJd-Yl-rVU"/>
+                            </constraints>
+                        </view>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-aQ-YH8">
+                            <rect key="frame" x="0.0" y="552" width="414" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="2cE-9h-r6C"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="EIP-OD-GOK" firstAttribute="width" secondItem="1BG-2s-Ur0" secondAttribute="width" id="QRd-gQ-sw9"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="137" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPn-uh-wbL">
+                    <rect key="frame" x="0.0" y="0.0" width="415" height="553"/>
+                    <subviews>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-pD-Bk1">
+                            <rect key="frame" x="0.0" y="0.0" width="1" height="553"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="vfz-fG-viD"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hB-IC-fSW">
+                            <rect key="frame" x="138" y="0.0" width="1" height="553"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="OVW-ve-AC4"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCO-tX-liM">
+                            <rect key="frame" x="276" y="0.0" width="1" height="553"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="QIj-YM-tsd"/>
+                            </constraints>
+                        </view>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oee-yv-u8P">
+                            <rect key="frame" x="414" y="0.0" width="1" height="553"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="yEW-HB-Skg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gCO-tX-liM" firstAttribute="height" secondItem="kPn-uh-wbL" secondAttribute="height" id="CvZ-l7-UiU"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="kPn-uh-wbL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="07b-yk-ddJ"/>
+                <constraint firstItem="1BG-2s-Ur0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JVE-rI-goC"/>
+                <constraint firstItem="1BG-2s-Ur0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OyI-YN-7eQ"/>
+                <constraint firstItem="kPn-uh-wbL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ehV-Hc-vuD"/>
+                <constraint firstItem="1BG-2s-Ur0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hx6-7I-3ct"/>
+                <constraint firstAttribute="bottom" secondItem="kPn-uh-wbL" secondAttribute="bottom" id="nsm-KG-U9R"/>
+                <constraint firstAttribute="trailing" secondItem="1BG-2s-Ur0" secondAttribute="trailing" id="xua-L1-5Si"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-174.44196428571428"/>
+        </view>
+    </objects>
+</document>

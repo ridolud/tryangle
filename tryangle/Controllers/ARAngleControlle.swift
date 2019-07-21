@@ -13,13 +13,14 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
     
-    @IBOutlet weak var noticeLabel: UILabel!
-    
     @IBOutlet weak var triggerArea: TriggerAreaView!
     
     @IBOutlet weak var triggerButton: UIButton!
     
-    var infoLabel = ARNotificationLabel()
+    let infoLabel = ARNotificationLabel()
+    
+    var grid: UIView!
+    //var infoLabel = ARNotificationLabel()
     
     // images captured
     var imageAngle: [Angle: UIImage] = [
@@ -37,12 +38,17 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         didSet {
             self.triggerArea.currentAngleState = self.currentAngleState!
             
-            if self.currentAngleState == .initialized {
+            switch self.currentAngleState {
+            case .initialized?:
                 LoadingScreenView.instance.stopLoading()
-            }
-            
-            if self.currentAngleState == .addedObject {
+                infoLabel.showUp(style: .normal, message: .findSurface)
+                
+            case .addedObject?:
                 self.triggerArea.showUp()
+                infoLabel.showUp(style: .normal, message: .objectAdded)
+                
+            default:
+                return
             }
         }
     }
@@ -65,6 +71,12 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Config navigation.
         self.navigationConfig()
         
+        // init grid
+        self.grid = GridCameraView.instance.mainView
+        self.view.addSubview(grid)
+        self.grid.alpha = 0
+        self.grid.setAnchor(top: self.view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: self.triggerArea.topAnchor, trailing: view.trailingAnchor)
+        
         // init scene view
         sceneView.delegate = self
         sceneView.session.delegate = self
@@ -81,7 +93,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(_:)))
         sceneView.addGestureRecognizer(pinchGesture)
         
-        // add info label
+        // init label info
         self.view.addSubview(infoLabel)
         
         // set trigger area
@@ -128,20 +140,23 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         switch camera.trackingState {
         case .normal :
-            infoLabel.text = "Move the device to detect horizontal surfaces."
-            self.currentAngleState = .initialized
+            if self.currentAngleState == nil {
+                self.currentAngleState = .initialized
+            }
             
-        case .notAvailable:
-            infoLabel.text = "Tracking not available."
+            
+            
+        //case .notAvailable:
+            //infoLabel.text = "Tracking not available."
 
-        case .limited(.excessiveMotion):
-            infoLabel.text = "Tracking limited - Move the device more slowly."
+        //case .limited(.excessiveMotion):
+            //infoLabel.text = "Tracking limited - Move the device more slowly."
             
-        case .limited(.insufficientFeatures):
-            infoLabel.text = "Tracking limited - Point the device at an area with visible surface detail."
+        //case .limited(.insufficientFeatures):
+            //infoLabel.text = "Tracking limited - Point the device at an area with visible surface detail."
             
-        case .limited(.initializing):
-            infoLabel.text = "Initializing AR session."
+        //case .limited(.initializing):
+            //infoLabel.text = "Initializing AR session."
             
         default:
             return
@@ -223,8 +238,9 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         case .addedObject?:
             self.currentAngleState = .highAngle
-        
+            self.grid.alpha = 1
         case .highAngle?:
+           
             self.addCatureToImageAngle(angle: .high, nextStep: .eyeAngle)
         
         case .eyeAngle?:

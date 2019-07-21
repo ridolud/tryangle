@@ -15,11 +15,30 @@ extension ARSCNView {
 
     // Get range beetwen object and camera
     
-    func rangeObjectFromCamera(sceneView: ARSCNView, sceneObjectActive: SCNNode) {
+    func rangeObjectFromCamera(sceneView: ARSCNView, sceneObjectActive: SCNNode) -> Float{
+        
         let cameraMetrix = sceneView.pointOfView?.transform
         let currentNodeMatrix = sceneObjectActive.transform
-        let newMetrix = SCNMatrix4Mult(currentNodeMatrix, cameraMetrix!)
-        print([newMetrix.m41, newMetrix.m42, newMetrix.m43])
+        
+        let startPoint = SCNVector3(cameraMetrix!.m41, cameraMetrix!.m42, cameraMetrix!.m43)
+        let endPoint = SCNVector3(currentNodeMatrix.m41, currentNodeMatrix.m42, currentNodeMatrix.m43)
+        
+        let distance = SCNVector3.distanceFrom(vector: startPoint, toVector: endPoint).z
+        return distance.metersToCentimeter()
+    }
+    
+    func angelObjectFromCamera(sceneView: ARSCNView, sceneObjectActive: SCNNode) {
+        
+        let cameraMetrix = sceneView.pointOfView?.transform
+        let currentNodeMatrix = sceneObjectActive.transform
+        
+        let startPoint = SCNVector3(cameraMetrix!.m41, cameraMetrix!.m42, cameraMetrix!.m43)
+        let endPoint = SCNVector3(currentNodeMatrix.m41, currentNodeMatrix.m42, currentNodeMatrix.m43)
+        
+        let distance = SCNVector3.distanceFrom(vector: startPoint, toVector: endPoint)
+//        return distance
+        
+        print(distance)
     }
     
     func feedbackAddedObject() {
@@ -44,5 +63,30 @@ extension ARSCNView {
         let croppedImage = image.cgImage?.cropping(to: cropArea)
         return UIImage(cgImage: croppedImage!)
     }
+}
 
+extension SCNVector3 {
+    static func distanceFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNVector4 {
+        let x0 = vector1.x
+        let x1 = vector2.x
+        let y0 = vector1.y
+        let y1 = vector2.y
+        let z0 = vector1.z
+        let z1 = vector2.z
+        let distanceXZ = sqrtf(powf(x1-x0, 2) + powf(z1-z0, 2))
+        let distanceY = y1-y0
+        let distanceXYZ = sqrtf(powf(x1-x0, 2) + powf(y1-y0, 2) + powf(z1-z0, 2))
+        
+        let angleValue: Float = ( powf(distanceXYZ, 2) + powf(distanceXZ, 2) - powf(distanceY, 2)) / ( 2 * distanceXYZ * distanceXZ  )
+        let angle = acos(angleValue) * 180 / .pi
+    
+        return SCNVector4(distanceXZ, distanceY, distanceXYZ, angle)
+        // jarak horizontal, jarak vertikal, jarak, sudut(derajat)
+    }
+}
+
+extension Float {
+    func metersToCentimeter() -> Float {
+        return self * 100
+    }
 }

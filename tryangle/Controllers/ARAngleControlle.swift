@@ -101,6 +101,9 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         
         addLight()
+        
+//        view.addSubview(checkFrame)
+//        checkFrame.backgroundColor = .blue
     }
     
     func addLight() {
@@ -173,7 +176,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         self.config.planeDetection = .horizontal
         self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.automaticallyUpdatesLighting = true
-        //self.sceneView.debugOptions = [ .showWorldOrigin, .showFeaturePoints ]
+//        self.sceneView.debugOptions = [ .showWorldOrigin ]
         self.sceneView.session.run( self.config )
     }
     
@@ -222,14 +225,14 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             
         }
         
-        print("Camera state: \(camera.trackingState)")
+//        print("Camera state: \(camera.trackingState)")
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         DispatchQueue.main.sync {
             if self.currentAngleState == .initialized , let objectName = currentGenreObject {
-                print(objectName)
+//                print(objectName)
                 let objectScene = objectName.object
                 self.selectedNode = objectScene?.rootNode.childNode(withName: objectName.name, recursively: true)
                 self.selectedNode?.simdPosition = float3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
@@ -348,6 +351,17 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
         
     }
+    
+    let checkFrame = UIView()
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        if selectedNode != nil {
+            print(sceneView.rangeObjectFromCamera(sceneView: sceneView, sceneObjectActive: selectedNode!))
+            sceneView.angelObjectFromCamera(sceneView: sceneView, sceneObjectActive: selectedNode!)
+        }
+    
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "arToComparing" {

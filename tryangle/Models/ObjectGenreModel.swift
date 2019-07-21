@@ -47,7 +47,7 @@ class ObjectGenreModel {
         ObjectGenre(name: "weddingCake", genre: "food", title: "Wedding Cake", image: "weddingCake", object: "Wedding Cake.dae", tips: "In general, wedding cakes with layers typically look best shot straight-on to emphasize the layers and height of the cake"),
         ObjectGenre(name: "sandwich", genre: "food", title: "Sandwich", image: "sandwich", object: "Sandwich.scn", tips: "Sandwich have detail on the side to show the topping and thickness, so straight on to 45° would work the best"),
         ObjectGenre(name: "cupcake", genre: "food", title: "Cup Cake", image: "cupcake", object: "cupcake.scn", tips: "Cupcake is a subjects with detail on the top, it work better with the top down angle to capture top detail"),
-        ObjectGenre(name: "applePie", genre: "food", title: "Apple Pie", image: "applePie", object: "Apple Pie.scn", tips: "Pie have many detail on the top so the top down angle can show the detail on the pie surface"),
+        ObjectGenre(name: "applePie", genre: "food", title: "Apple Pie", image: "applePie", object: "applePie.scn", tips: "Pie have many detail on the top so the top down angle can show the detail on the pie surface"),
         
         
         ObjectGenre(name: "Dance Woman", genre: "potrait", title: "Dancer", image: "Dance Woman", object: "Dancer.scn", tips: "Eye level shot is good for a performer because it will show the body proportional"),

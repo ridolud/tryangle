@@ -335,6 +335,7 @@ class ARAngleControlle: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     func addCatureToImageAngle(angle: Angle, nextStep: AngleStepStatus) {
+        self.sceneView.feedbackAddedObject()
         let navBarAndStatusBarHeight = topDistance
         let image = self.sceneView.captureImageAndKeep(topDistance: navBarAndStatusBarHeight)
         ARAlertImageReview.instance.showDialog(image: image) { (isUsePhoto) in

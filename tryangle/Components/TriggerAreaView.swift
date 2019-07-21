@@ -84,6 +84,7 @@ class TriggerAreaView: UIView {
         imageView.contentMode = .scaleToFill
         imageView.layer.borderColor = .none
         imageView.layer.borderWidth = 2
+        imageView.layer.cornerRadius = 2
         labelAngle.text = angle.description
         labelAngle.textAlignment = .center
         labelAngle.textColor = .white

@@ -31,7 +31,7 @@ extension ARSCNView {
     
     // Is't in same angle position ?
     
-    func captureImageAndKeep() -> UIImage {
+    func captureImageAndKeep(topDistance: CGFloat) -> UIImage {
         let image = self.snapshot()
         
         let viewWidth = (self.superview?.frame.width)!
@@ -39,10 +39,9 @@ extension ARSCNView {
         let height = (width * 4) / 3
         
         let x: CGFloat = 0
-        let y: CGFloat = 88 * (width / viewWidth)
+        let y: CGFloat = topDistance * (width / viewWidth)
         let cropArea = CGRect(x: x, y: y, width: width, height: height)
         let croppedImage = image.cgImage?.cropping(to: cropArea)
-        
         return UIImage(cgImage: croppedImage!)
     }
 
